@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ahmed Tarek Sayed — Performance Marketing Manager</title>
+<meta name="description" content="Performance Marketing Manager & Media Buyer with 9+ years scaling paid campaigns across Meta, Google, TikTok, Snapchat, and X. $10M+ ad spend managed across MENA & GCC." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #050509;
+  --bg-2: #0b0b14;
+  --surface: rgba(255,255,255,0.03);
+  --surface-2: rgba(255,255,255,0.06);
+  --border: rgba(255,255,255,0.08);
+  --border-strong: rgba(255,255,255,0.15);
+  --text: #ECECF1;
+  --text-dim: #9999A8;
+  --text-mute: #6B6B7A;
+  --accent: #6EE7FF;
+  --accent-2: #A78BFA;
+  --accent-3: #F472B6;
+  --grad: linear-gradient(135deg, #6EE7FF 0%, #A78BFA 50%, #F472B6 100%);
+  --grad-soft: linear-gradient(135deg, rgba(110,231,255,0.12) 0%, rgba(167,139,250,0.12) 100%);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Background gradient blobs */
+body::before, body::after {
+  content: '';
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.15;
+  z-index: 0;
+  pointer-events: none;
+}
+body::before {
+  background: var(--accent);
+  top: -200px;
+  left: -200px;
+}
+body::after {
+  background: var(--accent-2);
+  bottom: -200px;
+  right: -200px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Navigation */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 16px 0;
+  backdrop-filter: blur(12px);
+  background: rgba(5, 5, 9, 0.7);
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+nav.scrolled { border-bottom-color: var(--border); }
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.logo {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+.nav-links a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--text); }
+
+.nav-cta {
+  background: var(--text);
+  color: var(--bg);
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(255,255,255,0.15); }
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+}
+
+/* Hero */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 120px 0 80px;
+  position: relative;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-bottom: 28px;
+}
+.hero-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #34D399;
+  box-shadow: 0 0 8px #34D399;
+}
+
+.hero h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(48px, 8vw, 96px);
+  font-weight: 700;
+  line-height: 1.0;
+  letter-spacing: -0.04em;
+  margin-bottom: 24px;
+}
+.hero h1 .grad {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-sub {
+  font-size: clamp(18px, 2vw, 22px);
+  color: var(--text-dim);
+  max-width: 720px;
+  margin-bottom: 40px;
+  font-weight: 400;
+}
+.hero-sub strong { color: var(--text); font-weight: 600; }
+
+.hero-cta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 24px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+.btn-primary {
+  background: var(--text);
+  color: var(--bg);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(255,255,255,0.15);
+}
+.btn-ghost {
+  background: var(--surface);
+  color: var(--text);
+  border-color: var(--border-strong);
+}
+.btn-ghost:hover {
+  background: var(--surface-2);
+  border-color: var(--text-dim);
+}
+
+/* Section */
+section {
+  padding: 100px 0;
+  position: relative;
+}
+
+.section-eyebrow {
+  display: inline-block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.section-sub {
+  font-size: 18px;
+  color: var(--text-dim);
+  max-width: 640px;
+  margin-bottom: 56px;
+}
+
+/* Stats / Numbers */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+@media (max-width: 900px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 500px) { .stats-grid { grid-template-columns: 1fr; } }
+
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.stat-card:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-4px);
+  background: var(--surface-2);
+}
+.stat-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--grad);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.stat-card:hover::after { opacity: 1; }
+
+.stat-value {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(40px, 5vw, 56px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 12px;
+}
+.stat-label {
+  color: var(--text-dim);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Secondary stats row */
+.metric-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 24px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+@media (max-width: 900px) { .metric-row { grid-template-columns: repeat(2, 1fr); } }
+.metric { text-align: left; }
+.metric-val {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+.metric-lbl {
+  font-size: 13px;
+  color: var(--text-mute);
+  margin-top: 4px;
+}
+
+/* About */
+.about-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+@media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+.about-text {
+  font-size: 18px;
+  color: var(--text-dim);
+  line-height: 1.75;
+}
+.about-text p + p { margin-top: 20px; }
+.about-text strong { color: var(--text); font-weight: 600; }
+
+.platforms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.platform-chip {
+  padding: 8px 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  font-size: 13px;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.about-side h4 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-mute);
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+.about-side + .about-side, .about-side-block + .about-side-block { margin-top: 32px; }
+
+/* Experience timeline */
+.timeline { position: relative; padding-left: 32px; }
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--accent) 0%, var(--accent-2) 50%, transparent 100%);
+}
+
+.job {
+  position: relative;
+  padding-bottom: 48px;
+}
+.job:last-child { padding-bottom: 0; }
+.job::before {
+  content: '';
+  position: absolute;
+  left: -32px;
+  top: 6px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 0 4px var(--bg), 0 0 20px rgba(110,231,255,0.5);
+}
+.job-period {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin-bottom: 6px;
+}
+.job-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+}
+.job-company {
+  color: var(--text-dim);
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+.job-desc {
+  color: var(--text-dim);
+  font-size: 15px;
+  line-height: 1.7;
+}
+.job-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+.job-metric {
+  padding: 4px 10px;
+  background: var(--grad-soft);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text);
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Brands wall */
+.brands-wall {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--surface);
+}
+@media (max-width: 900px) { .brands-wall { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 500px) { .brands-wall { grid-template-columns: repeat(2, 1fr); } }
+
+.brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 16px;
+  min-height: 110px;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  transition: all 0.3s ease;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+}
+.brand:hover {
+  background: var(--surface-2);
+}
+.brand[href]::after {
+  content: '↗';
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  font-size: 12px;
+  color: var(--text-mute);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.brand[href]:hover::after { opacity: 1; }
+.brand:hover .brand-name {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: none;
+}
+.brand-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 17px;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  filter: grayscale(1) opacity(0.65);
+  transition: all 0.3s ease;
+  line-height: 1.2;
+}
+.brand-name small {
+  display: block;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-mute);
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+/* Featured Work */
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+@media (max-width: 768px) { .work-grid { grid-template-columns: 1fr; } }
+
+.work-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 32px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.work-card:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-4px);
+  background: var(--surface-2);
+}
+.work-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--grad);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.work-card:hover::before { opacity: 1; }
+
+.work-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.work-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+}
+.work-tag {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-mute);
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+}
+
+.work-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+.work-client {
+  font-size: 14px;
+  color: var(--text-dim);
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+.work-desc {
+  color: var(--text-dim);
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+.work-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+.work-chip {
+  padding: 4px 10px;
+  background: var(--grad-soft);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text);
+  font-family: 'Space Grotesk', sans-serif;
+}
+.work-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  margin-top: auto;
+  transition: gap 0.2s;
+}
+.work-link:hover { gap: 10px; }
+.work-link.disabled {
+  color: var(--text-mute);
+  pointer-events: none;
+}
+
+/* Skills */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+@media (max-width: 768px) { .skills-grid { grid-template-columns: 1fr; } }
+
+.skill-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px;
+  transition: all 0.3s;
+}
+.skill-card:hover { border-color: var(--border-strong); }
+
+.skill-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--grad-soft);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  font-size: 18px;
+}
+.skill-card h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.skill-card p {
+  color: var(--text-dim);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* Certificates */
+.certs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+@media (max-width: 768px) { .certs-grid { grid-template-columns: 1fr; } }
+.cert {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.cert-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--grad);
+  flex-shrink: 0;
+}
+.cert-text { font-size: 15px; color: var(--text); }
+.cert-text small { color: var(--text-mute); font-size: 13px; display: block; }
+
+/* Contact / CTA */
+.contact-card {
+  background: linear-gradient(135deg, rgba(110,231,255,0.08) 0%, rgba(167,139,250,0.08) 100%);
+  border: 1px solid var(--border-strong);
+  border-radius: 24px;
+  padding: 64px 48px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.contact-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(110,231,255,0.1) 0%, transparent 60%);
+  pointer-events: none;
+}
+@media (max-width: 600px) { .contact-card { padding: 40px 24px; } }
+
+.contact-card h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 16px;
+  line-height: 1.1;
+}
+.contact-card p {
+  color: var(--text-dim);
+  font-size: 18px;
+  margin-bottom: 32px;
+  max-width: 540px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+
+.contact-info {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+  position: relative;
+  z-index: 1;
+}
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-dim);
+  font-size: 15px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.contact-item:hover { color: var(--text); }
+.contact-item svg { width: 18px; height: 18px; stroke: var(--accent); }
+
+/* Footer */
+footer {
+  padding: 40px 0;
+  text-align: center;
+  color: var(--text-mute);
+  font-size: 13px;
+  border-top: 1px solid var(--border);
+  margin-top: 80px;
+}
+
+/* Reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 600px) {
+  section { padding: 70px 0; }
+  .hero { padding: 100px 0 60px; }
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <div class="logo">AHMED TAREK</div>
+    <ul class="nav-links">
+      <li><a href="#stats">Results</a></li>
+      <li><a href="#brands">Brands</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#skills">Skills</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Get in touch</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container">
+    <div class="hero-badge">Available for new opportunities</div>
+    <h1>
+      Performance<br />
+      marketing that<br />
+      <span class="grad">moves numbers.</span>
+    </h1>
+    <p class="hero-sub">
+      I'm <strong>Ahmed Tarek</strong> — a Performance Marketing Manager & Media Buyer with <strong>9+ years</strong> scaling paid campaigns across Meta, Google, TikTok, X, and Snapchat. I turn ad spend into measurable growth across MENA and the GCC.
+    </p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-primary">
+        Let's talk
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="#stats" class="btn btn-ghost">See results</a>
+    </div>
+  </div>
+</header>
+
+<section id="stats">
+  <div class="container">
+    <span class="section-eyebrow reveal">The numbers</span>
+    <h2 class="section-title reveal">Results, not just impressions.</h2>
+    <p class="section-sub reveal">Nine years of paid media, distilled into outcomes that actually move a business forward.</p>
+
+    <div class="stats-grid">
+      <div class="stat-card reveal">
+        <div class="stat-value" data-target="12" data-prefix="$" data-suffix="M+">$0M+</div>
+        <div class="stat-label">Total ad spend managed across all platforms</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="stat-value" data-target="4.8" data-suffix="x" data-decimals="1">0x</div>
+        <div class="stat-label">Average ROAS across full-funnel campaigns</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="stat-value" data-target="600" data-suffix="+">0+</div>
+        <div class="stat-label">Campaigns launched, tested, and optimized</div>
+      </div>
+      <div class="stat-card reveal">
+        <div class="stat-value" data-target="42" data-suffix="%">0%</div>
+        <div class="stat-label">Average CAC reduction after optimization</div>
+      </div>
+    </div>
+
+    <div class="metric-row reveal">
+      <div class="metric">
+        <div class="metric-val">9+</div>
+        <div class="metric-lbl">Years of experience</div>
+      </div>
+      <div class="metric">
+        <div class="metric-val">6</div>
+        <div class="metric-lbl">Ad platforms mastered</div>
+      </div>
+      <div class="metric">
+        <div class="metric-val">7+</div>
+        <div class="metric-lbl">Industry verticals</div>
+      </div>
+      <div class="metric">
+        <div class="metric-val">5</div>
+        <div class="metric-lbl">MENA & GCC markets</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="brands">
+  <div class="container">
+    <span class="section-eyebrow reveal">Brands &amp; clients</span>
+    <h2 class="section-title reveal">Trusted across MENA &amp; the GCC.</h2>
+    <p class="section-sub reveal">From fintech and real estate to fashion and sports federations — a snapshot of the brands I've helped grow.</p>
+
+    <div class="brands-wall reveal">
+      <div class="brand"><div class="brand-name">Business Loop<small>Performance</small></div></div>
+      <div class="brand"><div class="brand-name">Summit PMC<small>Real Estate</small></div></div>
+      <a class="brand" href="https://madkhol.com/en" target="_blank" rel="noopener"><div class="brand-name">Madkhol<small>Fintech</small></div></a>
+      <a class="brand" href="https://speakol.com" target="_blank" rel="noopener"><div class="brand-name">Speakol<small>Native Ads</small></div></a>
+      <a class="brand" href="https://talaatmoustafa.com" target="_blank" rel="noopener"><div class="brand-name">TMG Online<small>Real Estate</small></div></a>
+
+      <a class="brand" href="https://www.facebook.com/grinta.eg/" target="_blank" rel="noopener"><div class="brand-name">Grinta<small>Sports App</small></div></a>
+      <a class="brand" href="https://apps.apple.com/eg/app/ana-al-ahly/id6449405954" target="_blank" rel="noopener"><div class="brand-name">Ana Ahly<small>Mobile App</small></div></a>
+      <div class="brand"><div class="brand-name">Al Ahly SC<small>Sports Club</small></div></div>
+      <a class="brand" href="https://augustusmedia.com" target="_blank" rel="noopener"><div class="brand-name">Augustus Media<small>Agency</small></div></a>
+      <a class="brand" href="https://saudi.lovin.co" target="_blank" rel="noopener"><div class="brand-name">Lovin Saudi<small>Media</small></div></a>
+
+      <a class="brand" href="https://lovin.co" target="_blank" rel="noopener"><div class="brand-name">Lovin Dubai<small>Media</small></div></a>
+      <div class="brand"><div class="brand-name">Dubai Phone<small>E-commerce</small></div></div>
+      <a class="brand" href="https://www.instagram.com/heartofrak/" target="_blank" rel="noopener"><div class="brand-name">Heart of RAK<small>Fashion</small></div></a>
+      <div class="brand"><div class="brand-name">Arab Basketball<small>Federation</small></div></div>
+      <div class="brand"><div class="brand-name">UAE Handball<small>Federation</small></div></div>
+
+      <div class="brand" style="grid-column: 1 / -1; border-right: none;">
+        <div class="brand-name">Saudi Volleyball Federation<small>Sports Federation</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container">
+    <span class="section-eyebrow reveal">About</span>
+    <h2 class="section-title reveal">A media buyer who reads <span style="background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">P&Ls.</span></h2>
+
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>
+          I started in social and content, but performance is where I found my edge. Over the last nine years I've operated inside the ad accounts that move money — building campaigns, killing what doesn't work, scaling what does, and reporting to executives in language they actually care about.
+        </p>
+        <p>
+          I've worked across <strong>fintech, real estate, e-commerce, sports, and medical</strong>, with campaigns running in Egypt, UAE, Saudi Arabia, Qatar, and the wider GCC. I've built marketing departments from zero, led media buyer teams, and managed budgets where every dirham, riyal, and pound needed a job.
+        </p>
+        <p>
+          My approach is simple: <strong>test fast, kill faster, scale the winners.</strong> A/B frameworks, audience segmentation, full-funnel pacing, and creative briefing — it's the discipline that separates ad spending from ad investing.
+        </p>
+      </div>
+
+      <div>
+        <div class="about-side-block">
+          <h4>Platforms I run</h4>
+          <div class="platforms">
+            <span class="platform-chip">Meta Ads</span>
+            <span class="platform-chip">Google Ads</span>
+            <span class="platform-chip">TikTok Ads</span>
+            <span class="platform-chip">Snapchat</span>
+            <span class="platform-chip">X (Twitter)</span>
+            <span class="platform-chip">Taboola</span>
+            <span class="platform-chip">Outbrain</span>
+            <span class="platform-chip">LinkedIn</span>
+          </div>
+        </div>
+        <div class="about-side-block" style="margin-top: 32px;">
+          <h4>Industries</h4>
+          <div class="platforms">
+            <span class="platform-chip">Fintech</span>
+            <span class="platform-chip">Real Estate</span>
+            <span class="platform-chip">E-commerce</span>
+            <span class="platform-chip">Sports</span>
+            <span class="platform-chip">Medical</span>
+            <span class="platform-chip">Financial</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="container">
+    <span class="section-eyebrow reveal">Experience</span>
+    <h2 class="section-title reveal">Nine years in the ad accounts.</h2>
+    <p class="section-sub reveal">From content acquisition at Al Ahly Sporting Club to leading performance marketing at Business Loop.</p>
+
+    <div class="timeline">
+      <div class="job reveal">
+        <div class="job-period">04/2026 — Present</div>
+        <div class="job-title">Performance Marketing Manager</div>
+        <div class="job-company">Business Loop</div>
+        <div class="job-desc">Owning integrated paid strategy across Meta, Google, TikTok, X, and Snapchat. Building A/B frameworks, mentoring media buyer teams, and turning Meta Business Suite & GA dashboards into decisions.</div>
+        <div class="job-metrics">
+          <span class="job-metric">Full-funnel</span>
+          <span class="job-metric">5+ platforms</span>
+          <span class="job-metric">Team leadership</span>
+        </div>
+      </div>
+
+      <div class="job reveal">
+        <div class="job-period">2026 — Present</div>
+        <div class="job-title">Marketing Manager</div>
+        <div class="job-company">Summit PMC</div>
+        <div class="job-desc">Built the marketing department from zero — org structure, salary scales, tech stack, and budget forecasts. Led GTM strategy for new real estate, medical, and commercial projects with bilingual (AR/EN) execution.</div>
+        <div class="job-metrics">
+          <span class="job-metric">Dept. build</span>
+          <span class="job-metric">GTM strategy</span>
+          <span class="job-metric">Bilingual</span>
+        </div>
+      </div>
+
+      <div class="job reveal">
+        <div class="job-period">2025 — 2026</div>
+        <div class="job-title">Marketing Supervisor</div>
+        <div class="job-company">Madkhol Capital</div>
+        <div class="job-desc">Led performance media buying for the Madkhol fintech platform — full-funnel on Meta and native networks, with ROI, conversion growth, and CAC optimization as the only metrics that mattered.</div>
+        <div class="job-metrics">
+          <span class="job-metric">Fintech</span>
+          <span class="job-metric">CAC optimization</span>
+          <span class="job-metric">ROI focus</span>
+        </div>
+      </div>
+
+      <div class="job reveal">
+        <div class="job-period">2024 — 2025</div>
+        <div class="job-title">Marketing Supervisor</div>
+        <div class="job-company">Speakol &amp; TMG Online</div>
+        <div class="job-desc">Ran media buying for Speakol and TMG Online across Meta and native ad networks. Built seasonal campaigns around Ramadan and Black Friday, with sharp focus on audience targeting and post-launch optimization.</div>
+        <div class="job-metrics">
+          <span class="job-metric">Native ads</span>
+          <span class="job-metric">Seasonal scaling</span>
+        </div>
+      </div>
+
+      <div class="job reveal">
+        <div class="job-period">2023 — 2024</div>
+        <div class="job-title">Team Lead — Marketing</div>
+        <div class="job-company">Grinta — Ana Ahly App</div>
+        <div class="job-desc">Planned and executed digital ad campaigns for Ana Al Ahly App and its sponsors — media buying, visual production, and platform-level optimization for one of Egypt's largest football fan bases.</div>
+        <div class="job-metrics">
+          <span class="job-metric">Sports vertical</span>
+          <span class="job-metric">Sponsor campaigns</span>
+        </div>
+      </div>
+
+      <div class="job reveal">
+        <div class="job-period">2021 — 2023</div>
+        <div class="job-title">Marketing Specialist</div>
+        <div class="job-company">Augustus Media</div>
+        <div class="job-desc">Managed paid campaigns across GCC markets (UAE, Saudi, Qatar). Drove brand visibility for the UAE Handball Federation and Saudi Volleyball Federation through targeted media buying.</div>
+        <div class="job-metrics">
+          <span class="job-metric">GCC markets</span>
+          <span class="job-metric">Federation accounts</span>
+        </div>
+      </div>
+
+      <div class="job reveal">
+        <div class="job-period">2016 — 2020</div>
+        <div class="job-title">Content Acquisition</div>
+        <div class="job-company">Al Ahly Sporting Club</div>
+        <div class="job-desc">Managed the club's social presence, executed fan-engagement campaigns, and learned the discipline of reading performance metrics to refine creative and strategy continuously.</div>
+        <div class="job-metrics">
+          <span class="job-metric">Brand &amp; fan growth</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="container">
+    <span class="section-eyebrow reveal">Featured work</span>
+    <h2 class="section-title reveal">Selected projects.</h2>
+    <p class="section-sub reveal">A curated look at campaigns and strategies I've built across agencies, sports, fintech, and fashion.</p>
+
+    <div class="work-grid">
+      <div class="work-card reveal">
+        <div class="work-header">
+          <span class="work-num">PROJECT 01</span>
+          <span class="work-tag">Social Strategy</span>
+        </div>
+        <h3 class="work-title">GCC Social Strategy for Lovin Saudi &amp; Lovin Dubai</h3>
+        <div class="work-client">Augustus Media · Dubai, Saudi Arabia, Qatar</div>
+        <p class="work-desc">
+          Built and executed a comprehensive social strategy for high-profile media accounts across the GCC. Led marketing for Lovin Saudi and Lovin Dubai, plus the Arab Basketball Federation, UAE Handball Federation, and Saudi Volleyball Federation — managing channels, creating engaging content, and launching campaigns that meaningfully grew the brands' online presence.
+        </p>
+        <div class="work-meta">
+          <span class="work-chip">Lovin Saudi</span>
+          <span class="work-chip">Lovin Dubai</span>
+          <span class="work-chip">3 federations</span>
+          <span class="work-chip">GCC-wide</span>
+        </div>
+        <a href="https://saudi.lovin.co" target="_blank" rel="noopener" class="work-link">Visit Lovin Saudi →</a>
+      </div>
+
+      <div class="work-card reveal">
+        <div class="work-header">
+          <span class="work-num">PROJECT 02</span>
+          <span class="work-tag">Native Ads</span>
+        </div>
+        <h3 class="work-title">Media Buying for Speakol &amp; TMG Online</h3>
+        <div class="work-client">Speakol · TMG Online · Egypt</div>
+        <p class="work-desc">
+          Led media buying for Speakol — the largest native ad network in MENA with 12K+ brand advertisers and 500+ publishers — alongside TMG Online (Talaat Moustafa Group, Egypt's #1 real estate developer). Built seasonal campaigns around Ramadan and Black Friday with sharp audience targeting and ROI-first optimization.
+        </p>
+        <div class="work-meta">
+          <span class="work-chip">Native ads</span>
+          <span class="work-chip">Real estate</span>
+          <span class="work-chip">Seasonal scaling</span>
+        </div>
+        <a href="https://speakol.com" target="_blank" rel="noopener" class="work-link">Visit Speakol →</a>
+      </div>
+
+      <div class="work-card reveal">
+        <div class="work-header">
+          <span class="work-num">PROJECT 03</span>
+          <span class="work-tag">Sports Marketing</span>
+        </div>
+        <h3 class="work-title">Ana Al Ahly App — Fan Engagement at Scale</h3>
+        <div class="work-client">Grinta · Al-Ahly Sporting Club</div>
+        <p class="work-desc">
+          Led content teams behind the official Ana Al Ahly app — the fan-engagement platform for one of Africa's most popular football clubs. Owned consistent content delivery, edited for brand alignment, and used in-depth research and performance tracking to continuously sharpen strategy across one of Egypt's largest sports audiences.
+        </p>
+        <div class="work-meta">
+          <span class="work-chip">Team leadership</span>
+          <span class="work-chip">Content strategy</span>
+          <span class="work-chip">Performance tracking</span>
+        </div>
+        <a href="https://apps.apple.com/eg/app/ana-al-ahly/id6449405954" target="_blank" rel="noopener" class="work-link">View Ana Al Ahly →</a>
+      </div>
+
+      <div class="work-card reveal">
+        <div class="work-header">
+          <span class="work-num">PROJECT 04</span>
+          <span class="work-tag">Brand Copy</span>
+        </div>
+        <h3 class="work-title">Website Copy for Heart of RAK</h3>
+        <div class="work-client">Heart of RAK · Fashion / Streetwear</div>
+        <p class="work-desc">
+          Wrote and shaped the core brand messaging for a bold UAE fashion label blending modern streetwear with a rebellious edge. Crafted sharp, attitude-driven copy across the homepage, collection pages, product descriptions, and About section — keeping clarity, consistency, and alignment with the customer's tone and lifestyle.
+        </p>
+        <div class="work-meta">
+          <span class="work-chip">Homepage</span>
+          <span class="work-chip">Product copy</span>
+          <span class="work-chip">Brand tone</span>
+        </div>
+        <a href="https://www.instagram.com/heartofrak/" target="_blank" rel="noopener" class="work-link">View Heart of RAK →</a>
+      </div>
+    </div>
+
+    <p class="reveal" style="text-align:center; color: var(--text-mute); font-size: 14px; margin-top: 40px;">
+      More live case studies and campaign examples coming soon.
+    </p>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <span class="section-eyebrow reveal">Core competencies</span>
+    <h2 class="section-title reveal">What I bring to a marketing team.</h2>
+    <p class="section-sub reveal">Hands-on execution paired with the strategic lens to plan, scale, and report.</p>
+
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <div class="skill-icon">$</div>
+        <h3>Paid Media Expertise</h3>
+        <p>Meta Ads (Facebook, Instagram), Google Ads (Search, Display, Performance Max), TikTok, Snapchat, X, and native via Taboola &amp; Outbrain.</p>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">↗</div>
+        <h3>Performance Marketing</h3>
+        <p>Campaign strategy &amp; planning, media buying, A/B testing &amp; experimentation, CRO, ROI analysis, budget management, audience segmentation.</p>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">⚙</div>
+        <h3>Technical Skills</h3>
+        <p>SEO &amp; SEM, Google Analytics, Meta Business Suite, performance dashboards, marketing attribution, tag management.</p>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-icon">◇</div>
+        <h3>Leadership &amp; Strategy</h3>
+        <p>Team leadership &amp; development, cross-functional collaboration, strategic planning, stakeholder management, bilingual (Arabic-English) campaign execution.</p>
+      </div>
+    </div>
+
+    <div style="margin-top: 80px;">
+      <span class="section-eyebrow reveal">Certifications</span>
+      <h2 class="section-title reveal" style="margin-bottom: 40px;">Built on accredited foundations.</h2>
+      <div class="certs-grid">
+        <div class="cert reveal">
+          <span class="cert-dot"></span>
+          <div class="cert-text">Marketing Strategy Certificate<small>LinkedIn Learning</small></div>
+        </div>
+        <div class="cert reveal">
+          <span class="cert-dot"></span>
+          <div class="cert-text">Digital Marketing Certification<small>Google</small></div>
+        </div>
+        <div class="cert reveal">
+          <span class="cert-dot"></span>
+          <div class="cert-text">Digital Marketing Nanodegree<small>Udacity</small></div>
+        </div>
+        <div class="cert reveal">
+          <span class="cert-dot"></span>
+          <div class="cert-text">Native Advertising Masterclass<small>Taboola</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="contact-card reveal">
+      <h2>Got a campaign that needs to scale?</h2>
+      <p>Whether you're launching, scaling, or fixing what's not working — let's talk numbers.</p>
+      <div class="contact-actions">
+        <a href="tel:+201114391117" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Call me now
+        </a>
+        <a href="https://linkedin.com/in/ahmed-tarek-2505a7177" target="_blank" rel="noopener" class="btn btn-ghost">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.8 0 0 .77 0 1.72v20.56C0 23.23.8 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+
+      <div class="contact-info">
+        <a href="tel:+201114391117" class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +20 111 439 1117
+        </a>
+        <a href="mailto:atarek1919@gmail.com" class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          atarek1919@gmail.com
+        </a>
+        <a href="https://linkedin.com/in/ahmed-tarek-2505a7177" target="_blank" rel="noopener" class="contact-item">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.59 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.8 0 0 .77 0 1.72v20.56C0 23.23.8 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+          LinkedIn
+        </a>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Giza, 6th October — Egypt
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    &copy; <span id="year"></span> Ahmed Tarek Sayed. All rights reserved.
+  </div>
+</footer>
+
+<script>
+  // Nav scroll state
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Counter animation
+  const counters = document.querySelectorAll('.stat-value');
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        counterObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.4 });
+  counters.forEach(c => counterObserver.observe(c));
+
+  function animateCounter(el) {
+    const target = parseFloat(el.dataset.target);
+    const decimals = parseInt(el.dataset.decimals || '0');
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    const duration = 1800;
+    const startTime = performance.now();
+
+    function update(now) {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const value = target * eased;
+      el.textContent = prefix + value.toFixed(decimals) + suffix;
+      if (progress < 1) requestAnimationFrame(update);
+      else el.textContent = prefix + target.toFixed(decimals) + suffix;
+    }
+    requestAnimationFrame(update);
+  }
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
