@@ -1487,45 +1487,55 @@ footer {
 
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Contact form submission
+  // Contact form — opens visitor's email client with all fields prefilled
   const form = document.getElementById('contactForm');
   const submitBtn = document.getElementById('formSubmit');
   const statusEl = document.getElementById('formStatus');
 
-  form.addEventListener('submit', async (e) => {
+  form.addEventListener('submit', (e) => {
     e.preventDefault();
-    statusEl.className = 'form-status';
-    statusEl.textContent = '';
-    submitBtn.classList.add('loading');
-    submitBtn.disabled = true;
-    submitBtn.querySelector('.btn-text').textContent = 'Sending...';
 
-    const formData = new FormData(form);
+    // Honeypot — bots fill hidden fields, real users don't
+    if (form._honey && form._honey.value) return;
 
-    try {
-      const response = await fetch('https://formsubmit.co/ajax/atarek1919@gmail.com', {
-        method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: formData
-      });
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const phone = form.phone.value.trim();
+    const company = form.company.value.trim();
+    const service = form.service.value.trim();
+    const budget = form.budget.value.trim();
+    const message = form.message.value.trim();
 
-      const data = await response.json();
+    if (!name || !email || !message) return;
 
-      if (response.ok && (data.success === 'true' || data.success === true)) {
-        statusEl.className = 'form-status success';
-        statusEl.textContent = '✓ Thanks! Your message has been sent. I\'ll get back to you within 24 hours.';
-        form.reset();
-      } else {
-        throw new Error(data.message || 'Submission failed');
-      }
-    } catch (err) {
-      statusEl.className = 'form-status error';
-      statusEl.textContent = '✗ Something went wrong. Please try again, or email me directly at atarek1919@gmail.com';
-    } finally {
-      submitBtn.classList.remove('loading');
-      submitBtn.disabled = false;
-      submitBtn.querySelector('.btn-text').textContent = 'Send message';
-    }
+    const subject = `New inquiry from ${name}${company ? ' — ' + company : ''}`;
+
+    const bodyLines = [
+      'Hi Ahmed,',
+      '',
+      `Name: ${name}`,
+      `Email: ${email}`,
+      phone ? `Phone / WhatsApp: ${phone}` : null,
+      company ? `Company / Brand: ${company}` : null,
+      service ? `Service needed: ${service}` : null,
+      budget ? `Monthly ad budget: ${budget}` : null,
+      '',
+      'Message:',
+      message,
+      '',
+      '—',
+      'Sent from your portfolio site'
+    ].filter(Boolean);
+
+    const body = bodyLines.join('\n');
+    const mailto = `mailto:atarek1919@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    // Open user's email client with the draft prefilled
+    window.location.href = mailto;
+
+    // Show success state
+    statusEl.className = 'form-status success';
+    statusEl.innerHTML = '✓ Your email client just opened with your message ready to send. <strong>Click Send</strong> in your email and it\'ll arrive at my inbox. If nothing opened, email me directly at <a href="mailto:atarek1919@gmail.com" style="color:inherit;text-decoration:underline;">atarek1919@gmail.com</a>.';
   });
 </script>
 
