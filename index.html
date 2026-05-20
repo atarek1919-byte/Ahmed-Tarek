@@ -634,6 +634,131 @@ section {
   pointer-events: none;
 }
 
+/* Contact Form */
+.contact-form {
+  max-width: 760px;
+  margin: 0 auto;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+@media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
+.form-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+.form-field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 8px;
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: 0.01em;
+}
+.form-field label .req { color: var(--accent); margin-left: 2px; }
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  transition: all 0.2s ease;
+  outline: none;
+}
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: var(--text-mute);
+}
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  border-color: var(--accent);
+  background: var(--surface-2);
+  box-shadow: 0 0 0 3px rgba(110, 231, 255, 0.1);
+}
+.form-field input:hover,
+.form-field select:hover,
+.form-field textarea:hover {
+  border-color: var(--border-strong);
+}
+.form-field textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.6;
+}
+.form-field select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239999A8' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 40px;
+  cursor: pointer;
+}
+.form-field select option {
+  background: var(--bg-2);
+  color: var(--text);
+}
+.form-honey {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  pointer-events: none;
+}
+.form-submit {
+  width: auto;
+  margin-top: 8px;
+  font-size: 16px;
+  padding: 16px 32px;
+}
+.form-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+.form-submit .spinner {
+  display: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(0,0,0,0.2);
+  border-top-color: var(--bg);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+.form-submit.loading .spinner { display: inline-block; }
+.form-submit.loading .btn-arrow { display: none; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.form-status {
+  margin-top: 20px;
+  padding: 16px 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  display: none;
+  border: 1px solid;
+}
+.form-status.success {
+  display: block;
+  background: rgba(52, 211, 153, 0.1);
+  border-color: rgba(52, 211, 153, 0.3);
+  color: #34D399;
+}
+.form-status.error {
+  display: block;
+  background: rgba(248, 113, 113, 0.1);
+  border-color: rgba(248, 113, 113, 0.3);
+  color: #F87171;
+}
+
 /* Skills */
 .skills-grid {
   display: grid;
@@ -807,6 +932,7 @@ footer {
       <li><a href="#experience">Experience</a></li>
       <li><a href="#work">Work</a></li>
       <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact-form">Contact</a></li>
     </ul>
     <a href="#contact" class="nav-cta">Get in touch</a>
   </div>
@@ -1189,6 +1315,82 @@ footer {
   </div>
 </section>
 
+<section id="contact-form">
+  <div class="container">
+    <span class="section-eyebrow reveal">Get in touch</span>
+    <h2 class="section-title reveal">Let's talk about your next campaign.</h2>
+    <p class="section-sub reveal">Fill in your details and I'll get back to you within 24 hours.</p>
+
+    <form id="contactForm" class="contact-form reveal" action="https://formsubmit.co/atarek1919@gmail.com" method="POST">
+      <div class="form-row">
+        <div class="form-field">
+          <label for="name">Your name<span class="req">*</span></label>
+          <input type="text" id="name" name="name" placeholder="Ahmed Hassan" required />
+        </div>
+        <div class="form-field">
+          <label for="email">Email<span class="req">*</span></label>
+          <input type="email" id="email" name="email" placeholder="you@company.com" required />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-field">
+          <label for="phone">Phone / WhatsApp</label>
+          <input type="tel" id="phone" name="phone" placeholder="+20 100 000 0000" />
+        </div>
+        <div class="form-field">
+          <label for="company">Company / Brand</label>
+          <input type="text" id="company" name="company" placeholder="Your business name" />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-field">
+          <label for="service">What do you need?</label>
+          <select id="service" name="service">
+            <option value="">Select a service</option>
+            <option value="Performance Marketing">Performance Marketing</option>
+            <option value="Media Buying">Media Buying</option>
+            <option value="Full-Funnel Strategy">Full-Funnel Strategy</option>
+            <option value="Account Audit">Ad Account Audit</option>
+            <option value="Team Building">Team Building / Consulting</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="budget">Monthly ad budget</label>
+          <select id="budget" name="budget">
+            <option value="">Select range</option>
+            <option value="Under $5k">Under $5,000</option>
+            <option value="$5k - $25k">$5,000 – $25,000</option>
+            <option value="$25k - $100k">$25,000 – $100,000</option>
+            <option value="$100k+">$100,000+</option>
+            <option value="Not sure">Not sure yet</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label for="message">Tell me about your project<span class="req">*</span></label>
+        <textarea id="message" name="message" placeholder="What are you trying to grow? What platforms are you running on? What's working and what's not?" required></textarea>
+      </div>
+
+      <input type="text" name="_honey" class="form-honey" tabindex="-1" autocomplete="off" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_subject" value="New inquiry from portfolio site" />
+      <input type="hidden" name="_template" value="table" />
+
+      <button type="submit" class="btn btn-primary form-submit" id="formSubmit">
+        <span class="btn-text">Send message</span>
+        <span class="spinner"></span>
+        <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+
+      <div class="form-status" id="formStatus"></div>
+    </form>
+  </div>
+</section>
+
 <section id="contact">
   <div class="container">
     <div class="contact-card reveal">
@@ -1284,6 +1486,47 @@ footer {
   }
 
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Contact form submission
+  const form = document.getElementById('contactForm');
+  const submitBtn = document.getElementById('formSubmit');
+  const statusEl = document.getElementById('formStatus');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    statusEl.className = 'form-status';
+    statusEl.textContent = '';
+    submitBtn.classList.add('loading');
+    submitBtn.disabled = true;
+    submitBtn.querySelector('.btn-text').textContent = 'Sending...';
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/atarek1919@gmail.com', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (response.ok && (data.success === 'true' || data.success === true)) {
+        statusEl.className = 'form-status success';
+        statusEl.textContent = '✓ Thanks! Your message has been sent. I\'ll get back to you within 24 hours.';
+        form.reset();
+      } else {
+        throw new Error(data.message || 'Submission failed');
+      }
+    } catch (err) {
+      statusEl.className = 'form-status error';
+      statusEl.textContent = '✗ Something went wrong. Please try again, or email me directly at atarek1919@gmail.com';
+    } finally {
+      submitBtn.classList.remove('loading');
+      submitBtn.disabled = false;
+      submitBtn.querySelector('.btn-text').textContent = 'Send message';
+    }
+  });
 </script>
 
 </body>
