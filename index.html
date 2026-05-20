@@ -7,7 +7,10 @@
 <meta name="description" content="Performance Marketing Manager & Media Buyer with 9+ years scaling paid campaigns across Meta, Google, TikTok, Snapchat, and X. $10M+ ad spend managed across MENA & GCC." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Favicon: AT monogram with brand gradient -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%236EE7FF'/%3E%3Cstop offset='50%25' stop-color='%23A78BFA'/%3E%3Cstop offset='100%25' stop-color='%23F472B6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='url(%23g)'/%3E%3Cpath d='M14 46 L22 18 L30 46 M16.5 36 L27.5 36' stroke='%23050509' stroke-width='4.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M36 18 L52 18 M44 18 L44 46' stroke='%23050509' stroke-width='4.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <style>
 :root {
   --bg: #050509;
@@ -96,14 +99,69 @@ nav.scrolled { border-bottom-color: var(--border); }
 }
 
 .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.logo-mark {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: var(--grad);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  color: #050509;
+  letter-spacing: -0.04em;
+  flex-shrink: 0;
+  position: relative;
+  box-shadow: 0 4px 16px rgba(167, 139, 250, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.logo:hover .logo-mark {
+  transform: rotate(-4deg) scale(1.05);
+  box-shadow: 0 8px 24px rgba(167, 139, 250, 0.4);
+}
+.logo-mark::after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #050509;
+  opacity: 0.85;
+}
+.logo-text {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
-  font-size: 18px;
-  letter-spacing: -0.02em;
-  background: var(--grad);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  font-size: 16px;
+  letter-spacing: -0.01em;
+  color: var(--text);
+}
+.logo-text .dim {
+  color: var(--text-mute);
+  font-weight: 500;
+}
+
+/* Larger version used in hero/footer if needed */
+.logo-mark.lg {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  font-size: 22px;
+}
+.logo-mark.lg::after {
+  top: 8px;
+  right: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 .nav-links {
@@ -928,7 +986,10 @@ footer {
 
 <nav id="nav">
   <div class="nav-inner">
-    <div class="logo">AHMED TAREK</div>
+    <a href="#" class="logo" aria-label="Ahmed Tarek — Home">
+      <span class="logo-mark" aria-hidden="true">AT</span>
+      <span class="logo-text">Ahmed <span class="dim">Tarek</span></span>
+    </a>
     <ul class="nav-links">
       <li><a href="#stats">Results</a></li>
       <li><a href="#brands">Brands</a></li>
@@ -1438,8 +1499,11 @@ footer {
 </section>
 
 <footer>
-  <div class="container">
-    &copy; <span id="year"></span> Ahmed Tarek Sayed. All rights reserved.
+  <div class="container" style="display:flex; flex-direction:column; align-items:center; gap:16px;">
+    <div class="logo-mark lg" aria-hidden="true">AT</div>
+    <div style="font-family: 'Space Grotesk', sans-serif; font-size: 16px; color: var(--text); font-weight: 600;">Ahmed Tarek Sayed</div>
+    <div style="color: var(--text-mute); font-size: 13px;">Performance Marketing Manager · Cairo, Egypt</div>
+    <div style="color: var(--text-mute); font-size: 12px; margin-top: 8px;">&copy; <span id="year"></span> · All rights reserved.</div>
   </div>
 </footer>
 
