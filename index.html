@@ -398,11 +398,67 @@ section {
 /* About */
 .about-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 360px 1fr;
   gap: 64px;
   align-items: start;
 }
-@media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; gap: 40px; } }
+@media (max-width: 900px) { .about-grid { grid-template-columns: 280px 1fr; gap: 40px; } }
+@media (max-width: 700px) { .about-grid { grid-template-columns: 1fr; gap: 32px; } }
+
+.about-photo {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  aspect-ratio: 4 / 5;
+  max-width: 100%;
+}
+.about-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+.about-photo:hover img { transform: scale(1.03); }
+.about-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(5,5,9,0.4) 100%);
+  pointer-events: none;
+}
+.about-photo-glow {
+  position: absolute;
+  inset: -2px;
+  border-radius: 22px;
+  background: var(--grad);
+  z-index: -1;
+  opacity: 0.4;
+  filter: blur(20px);
+}
+.about-photo-wrap {
+  position: relative;
+}
+@media (max-width: 700px) {
+  .about-photo-wrap { max-width: 320px; margin: 0 auto; }
+}
+
+.about-meta {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.about-meta-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+.about-meta-row:last-child { margin-bottom: 0; }
+.about-meta-row span:first-child { color: var(--text-mute); }
+.about-meta-row span:last-child { color: var(--text); font-weight: 500; }
 
 .about-text {
   font-size: 18px;
@@ -1107,20 +1163,32 @@ footer {
     <h2 class="section-title reveal">A media buyer who reads <span style="background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">P&Ls.</span></h2>
 
     <div class="about-grid">
-      <div class="about-text reveal">
-        <p>
-          I started in social and content, but performance is where I found my edge. Over the last nine years I've operated inside the ad accounts that move money — building campaigns, killing what doesn't work, scaling what does, and reporting to executives in language they actually care about.
-        </p>
-        <p>
-          I've worked across <strong>fintech, real estate, e-commerce, sports, and medical</strong>, with campaigns running in Egypt, UAE, Saudi Arabia, Qatar, and the wider GCC. I've built marketing departments from zero, led media buyer teams, and managed budgets where every dirham, riyal, and pound needed a job.
-        </p>
-        <p>
-          My approach is simple: <strong>test fast, kill faster, scale the winners.</strong> A/B frameworks, audience segmentation, full-funnel pacing, and creative briefing — it's the discipline that separates ad spending from ad investing.
-        </p>
+      <div class="about-photo-wrap reveal">
+        <div class="about-photo-glow"></div>
+        <div class="about-photo">
+          <img src="assets/profile.jpg" alt="Ahmed Tarek Sayed — Performance Marketing Manager" loading="lazy" width="800" height="1000" />
+        </div>
+        <div class="about-meta">
+          <div class="about-meta-row"><span>Based in</span><span>Cairo · 6th October</span></div>
+          <div class="about-meta-row"><span>Languages</span><span>Arabic · English</span></div>
+          <div class="about-meta-row"><span>Available</span><span style="color: #34D399;">● Open to work</span></div>
+        </div>
       </div>
 
       <div>
-        <div class="about-side-block">
+        <div class="about-text reveal">
+          <p>
+            I started in social and content, but performance is where I found my edge. Over the last nine years I've operated inside the ad accounts that move money — building campaigns, killing what doesn't work, scaling what does, and reporting to executives in language they actually care about.
+          </p>
+          <p>
+            I've worked across <strong>fintech, real estate, e-commerce, sports, and medical</strong>, with campaigns running in Egypt, UAE, Saudi Arabia, Qatar, and the wider GCC. I've built marketing departments from zero, led media buyer teams, and managed budgets where every dirham, riyal, and pound needed a job.
+          </p>
+          <p>
+            My approach is simple: <strong>test fast, kill faster, scale the winners.</strong> A/B frameworks, audience segmentation, full-funnel pacing, and creative briefing — it's the discipline that separates ad spending from ad investing.
+          </p>
+        </div>
+
+        <div class="about-side-block reveal" style="margin-top: 32px;">
           <h4>Platforms I run</h4>
           <div class="platforms">
             <span class="platform-chip">Meta Ads</span>
@@ -1133,7 +1201,7 @@ footer {
             <span class="platform-chip">LinkedIn</span>
           </div>
         </div>
-        <div class="about-side-block" style="margin-top: 32px;">
+        <div class="about-side-block reveal" style="margin-top: 24px;">
           <h4>Industries</h4>
           <div class="platforms">
             <span class="platform-chip">Fintech</span>
