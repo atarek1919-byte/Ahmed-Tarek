@@ -40,6 +40,29 @@
   "knowsAbout": ["Performance marketing", "Media buying", "Meta Ads", "Google Ads", "TikTok Ads", "Snapchat Ads", "Native advertising", "Full-funnel strategy"]
 }
 </script>
+<script>
+/* Analytics: put the IDs here. An empty string turns that tracker off. */
+window.AT_ANALYTICS = { ga4: "", metaPixel: "" };
+(function (cfg) {
+  if (cfg.ga4) {
+    var s = document.createElement("script");
+    s.async = true;
+    s.src = "https://www.googletagmanager.com/gtag/js?id=" + cfg.ga4;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag("js", new Date());
+    window.gtag("config", cfg.ga4);
+  }
+  if (cfg.metaPixel) {
+    !function (f, b, e, v, n, t, s) { if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = "2.0"; n.queue = []; t = b.createElement(e); t.async = !0; t.src = v;
+      s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s); }(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+    window.fbq("init", cfg.metaPixel);
+    window.fbq("track", "PageView");
+  }
+})(window.AT_ANALYTICS);
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Amiri:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;600&family=Lalezar&display=swap">
@@ -532,6 +555,17 @@ html[lang="en"] .clip__body { line-height: 1.6; }
   font-size: .92rem; color: var(--p-ink-soft); line-height: 1.6;
 }
 .clip__tags-k { font-weight: 700; color: var(--p-ink); }
+.clip__points-k { margin-top: 16px; padding-top: 8px; border-top: 2px solid var(--p-ink); font-family: var(--f-display); font-size: 1.2rem; line-height: 1.4; }
+html[lang="en"] .clip__points-k { font-family: var(--f-slab); font-size: .9rem; letter-spacing: .06em; text-transform: uppercase; }
+.clip__points {
+  list-style: none; margin: 8px 0 0; padding: 0; font-size: .98rem; line-height: 1.75;
+  columns: 2; column-gap: 28px; column-rule: 1px solid var(--p-ink-soft);
+}
+html[lang="en"] .clip__points { line-height: 1.5; }
+.clip__points li { position: relative; break-inside: avoid; margin-bottom: 10px; padding-inline-start: 16px; }
+.clip__points li::before { content: "■"; position: absolute; inset-inline-start: 0; top: .15em; font-size: .6em; color: var(--p-red); }
+.clip__points b { font-family: var(--f-display); font-weight: 400; }
+html[lang="en"] .clip__points b { font-family: var(--f-body); font-weight: 700; }
 
 .coupon {
   position: relative; max-width: 780px; margin-top: 56px; padding: 22px clamp(18px, 3vw, 30px);
@@ -900,6 +934,7 @@ html[lang="en"] .meter__count b { font-size: .95rem; }
   .stats { grid-template-columns: 1fr; }
   .ads, .frames { grid-template-columns: 1fr; }
   .frame { min-height: 0; }
+  .clip__points { columns: 1; }
   .form__row { grid-template-columns: 1fr; }
   .form__head { flex-wrap: wrap; }
   .form__admin { max-width: none; }
@@ -946,7 +981,7 @@ html[lang="en"] .meter__count b { font-size: .95rem; }
 })();
 </script>
 
-<header class="mast">
+<header class="mast" id="masthead">
   <div class="mast__top wrap">
     <span id="mastIssue">اليوم ٣٬٩٤١ في السوق</span>
     <span id="mastDate">الجمعة ١٦ أكتوبر ٢٠٢٦</span>
@@ -1119,7 +1154,18 @@ html[lang="en"] .meter__count b { font-size: .95rem; }
                 <div class="clip__kicker-row"><p class="clip__kicker"><bdi>Business Loop · Performance Marketing Manager</bdi></p><span class="clip__stamp" data-t="ongoing">مستمر</span></div>
                 <h3 class="clip__head" data-t="j1head">أحمد طارق يمسك الـ Performance Marketing في Business Loop</h3>
                 <p class="clip__body" data-t="j1body">مسؤول عن استراتيجية الإعلانات المدفوعة كلها على ميتا وجوجل وتيك توك وإكس وسناب شات. ببني أنظمة A/B testing، وبدرّب فريق الميديا باينج، وبحوّل داشبوردات Meta Business Suite و GA لقرارات.</p>
-                <p class="clip__tags"><span class="clip__tags-k" data-t="tagsLabel">كلمات البحث:</span> <span data-t="j1tags">فانل كامل · +٥ منصات · قيادة فريق</span></p>
+                <p class="clip__points-k" data-t="pointsK">أبرز ما في الخبر</p>
+                <ul class="clip__points">
+                  <li><b data-t="j1p1h">استراتيجية متكاملة:</b> <span data-t="j1p1">خطط إعلانات مدفوعة على ميتا وجوجل وتيك توك وإكس وسناب شات، بنمو بيتقاس في العائد واكتساب العملاء في أكتر من قطاع.</span></li>
+                  <li><b data-t="j1p2h">فانل كامل:</b> <span data-t="j1p2">تخطيط وإطلاق وتظبيط مستمر لحملات الفانل الكامل، بتقسيم جمهور متقدم وإدارة للمزايدات عشان التحويل يبقى أكفأ.</span></li>
+                  <li><b data-t="j1p3h">A/B testing:</b> <span data-t="j1p3">أنظمة اختبار شاملة بتحسّن أداء الحملات وتأثير الكرييتيف ومعدلات التحويل على كل المنصات الشغّالة.</span></li>
+                  <li><b data-t="j1p4h">قيادة الفريق:</b> <span data-t="j1p4">قيادة وتدريب فرق الميديا باينج، بأهداف أداء واضحة ومعايير تشغيل وأفضل ممارسات عشان التنفيذ يفضل بنفس الجودة.</span></li>
+                  <li><b data-t="j1p5h">تحليل الأداء:</b> <span data-t="j1p5">تحليل عميق للحملات من Meta Business Suite و Google Analytics وداشبوردات المنصات، وتحويله لقرارات استراتيجية.</span></li>
+                  <li><b data-t="j1p6h">خطط وميديا كالندر:</b> <span data-t="j1p6">خطط إعلانية مفصّلة بتنسّق الحملات على المنصات، وتوزيع الميزانية، والمواسم، واستراتيجيات التارجتنج.</span></li>
+                  <li><b data-t="j1p7h">SEO و SEM:</b> <span data-t="j1p7">دعم المبادرات الرقمية المتكاملة بظهور أورجانيك أحسن، مع تظبيط أداء البحث المدفوع.</span></li>
+                  <li><b data-t="j1p8h">تشغيل من الأول للآخر:</b> <span data-t="j1p8">من بريف الكرييتيف واستراتيجية الجمهور، لـ pacing الميزانية ومتابعة الأداء والتقارير لأصحاب القرار.</span></li>
+                </ul>
+                <p class="clip__tags"><span class="clip__tags-k" data-t="tagsLabel">كلمات البحث:</span> <span data-t="j1tags">فانل كامل · +٥ منصات · قيادة فريق · A/B testing · SEO و SEM</span></p>
               </article>
             </li>
             <li class="clip-wrap" id="job-2" style="--age: 0">
@@ -1546,7 +1592,32 @@ html[lang="en"] .meter__count b { font-size: .95rem; }
     j1head: ["أحمد طارق يمسك الـ Performance Marketing في Business Loop", "Ahmed Tarek takes the helm of performance marketing at Business Loop"],
     j1body: ["مسؤول عن استراتيجية الإعلانات المدفوعة كلها على ميتا وجوجل وتيك توك وإكس وسناب شات. ببني أنظمة A/B testing، وبدرّب فريق الميديا باينج، وبحوّل داشبوردات Meta Business Suite و GA لقرارات.",
              "Owning integrated paid strategy across Meta, Google, TikTok, X and Snapchat. Building A/B testing frameworks, mentoring media buyer teams, and turning Meta Business Suite and GA dashboards into decisions."],
-    j1tags: ["فانل كامل · +٥ منصات · قيادة فريق", "Full-funnel · 5+ platforms · Team leadership"],
+    j1tags: ["فانل كامل · +٥ منصات · قيادة فريق · A/B testing · SEO و SEM", "Full-funnel · 5+ platforms · Team leadership · A/B testing · SEO & SEM"],
+    pointsK: ["أبرز ما في الخبر", "Key points"],
+    j1p1h: ["استراتيجية متكاملة:", "Integrated strategy:"],
+    j1p1: ["خطط إعلانات مدفوعة على ميتا وجوجل وتيك توك وإكس وسناب شات، بنمو بيتقاس في العائد واكتساب العملاء في أكتر من قطاع.",
+           "Paid advertising strategies across Meta, Google Ads, TikTok, X and Snapchat, driving measurable ROI and customer acquisition growth across several verticals."],
+    j1p2h: ["فانل كامل:", "Full funnel:"],
+    j1p2: ["تخطيط وإطلاق وتظبيط مستمر لحملات الفانل الكامل، بتقسيم جمهور متقدم وإدارة للمزايدات عشان التحويل يبقى أكفأ.",
+           "Planning, launching and continuously optimizing full-funnel campaigns, using advanced audience segmentation and bid management to raise conversion efficiency."],
+    j1p3h: ["A/B testing:", "A/B testing:"],
+    j1p3: ["أنظمة اختبار شاملة بتحسّن أداء الحملات وتأثير الكرييتيف ومعدلات التحويل على كل المنصات الشغّالة.",
+           "Testing frameworks that systematically improve campaign performance, creative effectiveness and conversion rates on every active platform."],
+    j1p4h: ["قيادة الفريق:", "Team leadership:"],
+    j1p4: ["قيادة وتدريب فرق الميديا باينج، بأهداف أداء واضحة ومعايير تشغيل وأفضل ممارسات عشان التنفيذ يفضل بنفس الجودة.",
+           "Leading and mentoring media buyer teams with clear performance goals, operating standards and best practices for consistent execution."],
+    j1p5h: ["تحليل الأداء:", "Performance analysis:"],
+    j1p5: ["تحليل عميق للحملات من Meta Business Suite و Google Analytics وداشبوردات المنصات، وتحويله لقرارات استراتيجية.",
+           "In-depth analysis from Meta Business Suite, Google Analytics and platform dashboards, turned into strategic decisions."],
+    j1p6h: ["خطط وميديا كالندر:", "Plans & media calendars:"],
+    j1p6: ["خطط إعلانية مفصّلة بتنسّق الحملات على المنصات، وتوزيع الميزانية، والمواسم، واستراتيجيات التارجتنج.",
+           "Detailed advertising plans that coordinate multi-platform campaigns, budget allocation, seasonal opportunities and targeting."],
+    j1p7h: ["SEO و SEM:", "SEO & SEM:"],
+    j1p7: ["دعم المبادرات الرقمية المتكاملة بظهور أورجانيك أحسن، مع تظبيط أداء البحث المدفوع.",
+           "Supporting integrated digital initiatives with stronger organic visibility while optimizing paid search."],
+    j1p8h: ["تشغيل من الأول للآخر:", "End-to-end operations:"],
+    j1p8: ["من بريف الكرييتيف واستراتيجية الجمهور، لـ pacing الميزانية ومتابعة الأداء والتقارير لأصحاب القرار.",
+           "From creative briefs and audience strategy to budget pacing, performance monitoring and stakeholder reporting."],
     j2date: ["٢٠٢٦ – لحد دلوقتي", "2026 – Present"],
     j2head: ["قسم ماركتنج بيتبني من الصفر في Summit PMC", "A marketing department built from zero at Summit PMC"],
     j2body: ["بنيت قسم الماركتنج من الأول: الهيكل، وسلّم المرتبات، والأدوات، وتوقعات الميزانية. وقدت استراتيجية الإطلاق لمشاريع عقارية وطبية وتجارية جديدة، بتنفيذ عربي وإنجليزي.",
@@ -1730,6 +1801,15 @@ html[lang="en"] .meter__count b { font-size: .95rem; }
   var statShown = {};
   var CAREER_START = Date.UTC(2016, 0, 1);
 
+  /* analytics: no-ops unless head.html loaded GA4 (gtag) or the Meta Pixel (fbq). Never send names, emails or phones. */
+  function track(gaEvent, params, fbEvent, fbCustom) {
+    try {
+      if (typeof window.gtag === "function") window.gtag("event", gaEvent, params || {});
+      if (fbEvent && typeof window.fbq === "function") window.fbq(fbCustom ? "trackCustom" : "track", fbEvent, params || {});
+    } catch (err) { /* tracking must never break the page */ }
+  }
+  function placeOf(el) { var p = el.closest("[id]"); return p ? p.id : "page"; }
+
   function idx() { return L === "ar" ? 0 : 1; }
   function fmt(v, d) {
     return new Intl.NumberFormat(L === "ar" ? "ar-EG" : "en-US", { minimumFractionDigits: d || 0, maximumFractionDigits: d || 0 }).format(v);
@@ -1902,7 +1982,7 @@ html[lang="en"] .meter__count b { font-size: .95rem; }
       tvAudio.pause();
     }
   });
-  tvAudio.addEventListener("play", renderTv);
+  tvAudio.addEventListener("play", function () { renderTv(); track("music_play", {}); });
   tvAudio.addEventListener("pause", renderTv);
   tvAudio.addEventListener("error", function () {
     /* code 1 is an aborted load (a new src replaced it); anything else means the file can't play here */
@@ -1947,6 +2027,12 @@ html[lang="en"] .meter__count b { font-size: .95rem; }
       }
       formErr.hidden = true;
       refreshLinks();
+      var svcEl = form.querySelector('input[name="cf-service"]:checked'), budEl = form.querySelector('input[name="cf-budget"]:checked');
+      track("generate_lead", {
+        method: kind === "sentWa" ? "whatsapp" : "email",
+        service: svcEl ? T[svcEl.value][1] : "not_set",
+        budget: budEl ? T[budEl.value][1] : "not_set"
+      }, "Lead");
       sentKind = kind;
       formSent.textContent = T[kind][idx()];
       formSent.hidden = false;
@@ -1960,6 +2046,15 @@ html[lang="en"] .meter__count b { font-size: .95rem; }
   form.addEventListener("submit", function (e) { e.preventDefault(); sendWa.click(); });
   sendWa.addEventListener("click", guardSend("sentWa"));
   sendMail.addEventListener("click", guardSend("sentMail"));
+
+  /* every other WhatsApp link (poster ticket, directory, classifieds, coming-soon card) is a direct contact */
+  document.querySelectorAll('a[href^="https://wa.me/"]').forEach(function (a) {
+    if (a === sendWa) return;
+    a.addEventListener("click", function () { track("contact_whatsapp", { link_location: placeOf(a) }, "Contact"); });
+  });
+  document.querySelectorAll("a[data-cv]").forEach(function (a) {
+    a.addEventListener("click", function () { track("cv_download", { link_location: placeOf(a) }, "CVDownload", true); });
+  });
 
   document.getElementById("copyEmail").addEventListener("click", function () {
     var btn = this;
@@ -1986,7 +2081,10 @@ html[lang="en"] .meter__count b { font-size: .95rem; }
   });
 
   /* language */
-  document.getElementById("langBtn").addEventListener("click", function () { apply(L === "ar" ? "en" : "ar"); });
+  document.getElementById("langBtn").addEventListener("click", function () {
+    apply(L === "ar" ? "en" : "ar");
+    track("language_switch", { language: L });
+  });
   var start = "ar";
   try { start = localStorage.getItem("at-lang") || "ar"; } catch (e) {}
   if (location.hash === "#en") start = "en";
