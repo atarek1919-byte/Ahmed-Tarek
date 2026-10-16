@@ -555,6 +555,8 @@ html[lang="en"] .clip__body { line-height: 1.6; }
   font-size: .92rem; color: var(--p-ink-soft); line-height: 1.6;
 }
 .clip__tags-k { font-weight: 700; color: var(--p-ink); }
+.clip__more { display: inline-block; margin-top: 12px; color: var(--p-red); font-family: var(--f-display); font-size: 1.05rem; text-underline-offset: 5px; }
+html[lang="en"] .clip__more { font-size: .85rem; }
 .clip__points-k { margin-top: 16px; padding-top: 8px; border-top: 2px solid var(--p-ink); font-family: var(--f-display); font-size: 1.2rem; line-height: 1.4; }
 html[lang="en"] .clip__points-k { font-family: var(--f-slab); font-size: .9rem; letter-spacing: .06em; text-transform: uppercase; }
 .clip__points {
@@ -646,6 +648,69 @@ html[lang="en"] .marquee__kicker { font-size: .75rem; letter-spacing: .16em; tex
 .marquee__title { font-family: var(--f-display); font-weight: 400; font-size: clamp(2.4rem, 6vw, 4.2rem); line-height: 1.2; text-shadow: .04em .04em 0 var(--p-red); }
 html[lang="en"] .marquee__title { font-size: clamp(2rem, 5vw, 3.4rem); text-transform: uppercase; line-height: 1.1; margin-block: 6px; }
 .work__sub { max-width: 62ch; margin: 0 auto 36px; text-align: center; color: var(--ink-soft); text-wrap: balance; }
+/* the premiere: the lead project, a dark card under spotlights with an episode filmstrip */
+.premiere {
+  position: relative; isolation: isolate; overflow: hidden; margin-bottom: 36px;
+  padding: 26px clamp(18px, 3vw, 36px) 0; background: var(--p-ink); color: var(--p-cream);
+  border: 3px solid var(--p-ink); box-shadow: 8px 8px 0 var(--p-red);
+}
+.premiere::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: radial-gradient(ellipse 55% 85% at 78% 0%, rgba(242, 180, 42, .22), transparent 70%),
+              radial-gradient(ellipse 45% 75% at 18% 0%, rgba(242, 180, 42, .13), transparent 70%);
+}
+.premiere__ribbon {
+  display: inline-block; background: var(--p-red); color: var(--p-cream); font-family: var(--f-display); font-size: 1.15rem;
+  padding: .15em 1.4em .05em; clip-path: polygon(0 0, 100% 0, calc(100% - .6em) 50%, 100% 100%, 0 100%, .6em 50%);
+}
+html[lang="en"] .premiere__ribbon { font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; padding: .55em 1.6em .45em; }
+.premiere__grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 28px; margin-top: 14px; }
+.premiere__genre { font-family: var(--f-label); font-size: .95rem; color: var(--p-yellow); }
+html[lang="en"] .premiere__genre { font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; }
+.premiere__title {
+  font-family: var(--f-display); font-weight: 400; font-size: clamp(2.6rem, 6vw, 4.4rem); line-height: 1.15;
+  color: var(--p-yellow); text-shadow: .04em .04em 0 var(--p-red);
+}
+html[lang="en"] .premiere__title { font-size: clamp(2rem, 4.6vw, 3.3rem); text-transform: uppercase; line-height: 1.05; margin-top: 6px; }
+.premiere__with { font-family: var(--f-display); font-size: 1.4rem; line-height: 1.3; }
+html[lang="en"] .premiere__with { font-family: var(--f-slab); font-size: 1rem; margin-top: 6px; }
+.premiere__logline { margin-top: 12px; max-width: 58ch; font-size: 1.1rem; line-height: 1.8; opacity: .92; }
+html[lang="en"] .premiere__logline { line-height: 1.55; }
+.premiere__credits { margin: 14px 0 0; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 2px 12px; font-size: .98rem; line-height: 1.6; }
+.premiere__credits dt { color: var(--p-yellow); font-weight: 700; }
+.premiere__credits dd { margin: 0; }
+.premiere__did { list-style: none; margin: 14px 0 0; padding: 0; display: flex; flex-direction: column; gap: 6px; font-size: 1rem; line-height: 1.6; }
+.premiere__did li { display: flex; gap: .55em; }
+.premiere__did li::before { content: "✦"; flex: none; color: var(--p-yellow); font-size: .7em; padding-top: .5em; }
+.premiere__links { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin-top: 20px; }
+.premiere__stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; align-content: start; }
+.pstat { padding: 12px 14px; background: var(--p-yellow); color: var(--p-ink); border: 2px solid var(--p-cream); }
+.pstat b { display: block; font-family: var(--f-display); font-weight: 400; font-size: 1.9rem; line-height: 1.25; color: var(--p-red); font-variant-numeric: tabular-nums; }
+html[lang="en"] .pstat b { font-family: var(--f-slab); font-size: 1.5rem; }
+.pstat span { display: block; font-size: .88rem; line-height: 1.45; }
+.pstat--before { background: transparent; color: var(--p-cream); border: 2px dashed var(--p-cream); }
+.pstat--before b { color: var(--p-cream); }
+.premiere__note { grid-column: 1 / -1; font-size: .8rem; opacity: .7; }
+.filmstrip {
+  margin: 26px calc(-1 * clamp(18px, 3vw, 36px)) 0; padding: 24px clamp(18px, 3vw, 36px) 26px;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 10px, var(--p-cream) 10px 22px, transparent 22px 32px) left 0 top 6px / 100% 8px no-repeat,
+    repeating-linear-gradient(90deg, transparent 0 10px, var(--p-cream) 10px 22px, transparent 22px 32px) left 0 bottom 6px / 100% 8px no-repeat,
+    var(--leader-bg);
+}
+.filmstrip__head { margin-bottom: 10px; font-family: var(--f-label); font-size: .95rem; color: var(--p-yellow); }
+html[lang="en"] .filmstrip__head { font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; }
+.episodes { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; }
+.episodes a {
+  display: flex; flex-direction: column; justify-content: space-between; gap: 6px; height: 100%; padding: 12px 10px;
+  background: var(--p-cream); color: var(--p-ink); text-decoration: none; border-radius: 4px; box-shadow: inset 0 0 0 2px var(--p-ink);
+  transition: background .15s, transform .15s;
+}
+.episodes a:hover { background: var(--p-yellow); transform: translateY(-2px); }
+.ep__name { font-family: var(--f-display); font-size: 1.05rem; line-height: 1.35; }
+html[lang="en"] .ep__name { font-family: var(--f-slab); font-size: .82rem; line-height: 1.25; }
+.ep__views { font-size: .85rem; color: var(--p-red); font-variant-numeric: tabular-nums; }
+
 .reels { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
 .reel {
   position: relative; display: flex; flex-direction: column; gap: 10px;
@@ -910,6 +975,8 @@ html[lang="en"] .meter__count b { font-size: .95rem; }
   .archive__index b { font-size: 1.15rem; }
   .clip-wrap:nth-child(even) { margin-inline-start: 0; }
   .reels { grid-template-columns: 1fr; }
+  .premiere__grid { grid-template-columns: 1fr; }
+  .episodes { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .ads, .frames { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .contact__grid { grid-template-columns: 1fr; }
   .directory { transform: none; }
@@ -935,6 +1002,7 @@ html[lang="en"] .meter__count b { font-size: .95rem; }
   .ads, .frames { grid-template-columns: 1fr; }
   .frame { min-height: 0; }
   .clip__points { columns: 1; }
+  .episodes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .form__row { grid-template-columns: 1fr; }
   .form__head { flex-wrap: wrap; }
   .form__admin { max-width: none; }
@@ -1139,6 +1207,7 @@ html[lang="en"] .meter__count b { font-size: .95rem; }
           <ol>
             <li><a href="#job-1"><b data-year="2026">٢٠٢٦</b><span>Business Loop</span></a></li>
             <li><a href="#job-2"><b data-year="2026">٢٠٢٦</b><span>Summit PMC</span></a></li>
+            <li><a href="#job-seerah"><b data-year="2026">٢٠٢٦</b><span data-t="jsIndex">السيرة الاقتصادية</span></a></li>
             <li><a href="#job-3"><b data-year="2025">٢٠٢٥</b><span>Madkhol Capital</span></a></li>
             <li><a href="#job-4"><b data-year="2024">٢٠٢٤</b><span>Speakol &amp; TMG</span></a></li>
             <li><a href="#job-5"><b data-year="2023">٢٠٢٣</b><span>Grinta</span></a></li>
@@ -1175,6 +1244,16 @@ html[lang="en"] .meter__count b { font-size: .95rem; }
                 <h3 class="clip__head" data-t="j2head">قسم ماركتنج بيتبني من الصفر في Summit PMC</h3>
                 <p class="clip__body" data-t="j2body">بنيت قسم الماركتنج من الأول: الهيكل، وسلّم المرتبات، والأدوات، وتوقعات الميزانية. وقدت استراتيجية الإطلاق لمشاريع عقارية وطبية وتجارية جديدة، بتنفيذ عربي وإنجليزي.</p>
                 <p class="clip__tags"><span class="clip__tags-k" data-t="tagsLabel">كلمات البحث:</span> <span data-t="j2tags">بناء قسم · استراتيجية إطلاق · عربي وإنجليزي</span></p>
+              </article>
+            </li>
+            <li class="clip-wrap" id="job-seerah" style="--age: 0">
+              <article class="clip">
+                <header class="clip__mast"><span class="clip__paper" data-t="clipPaper">النتايج</span><span class="clip__date" data-t="jsDate">٢٠٢٦</span></header>
+                <div class="clip__kicker-row"><p class="clip__kicker"><bdi>Basem Elewa · YouTube · Direct project</bdi></p><span class="clip__stamp" data-t="specialIssue">عدد خاص</span></div>
+                <h3 class="clip__head" data-t="jsHead">«السيرة الاقتصادية» مع د. باسم عليوة: حلقات بتوصل لـ٣٣ ألف مشاهدة</h3>
+                <p class="clip__body" data-t="jsBody">اشتغلت مباشرة مع د. باسم عليوة على سلسلة «السيرة الاقتصادية» على يوتيوب: فكرة السلسلة واستراتيجيتها، وكتابة السكريبتات، وإدارة القناة ونموها. حلقات الموسم ده جابت بين ١١ و٣٣ ألف مشاهدة للحلقة، مقابل أقل من ٣ آلاف لحلقات السلسلة القديمة.</p>
+                <p class="clip__tags"><span class="clip__tags-k" data-t="tagsLabel">كلمات البحث:</span> <span data-t="jsTags">استراتيجية محتوى · سكريبت · نمو يوتيوب · محتوى مالي</span></p>
+                <a class="clip__more" href="#premiere" data-t="jsMore">التفاصيل في «بيُعرض الآن» ↓</a>
               </article>
             </li>
             <li class="clip-wrap" id="job-3" style="--age: 1">
@@ -1245,6 +1324,50 @@ html[lang="en"] .meter__count b { font-size: .95rem; }
         <h2 class="marquee__title" id="workHead" data-t="workTitle">بيُعرض الآن</h2>
       </header>
       <p class="work__sub" data-t="workSub">مشاريع اشتغلت عليها مع وكالات وأندية وبراندات ميديا وفاشون. كل مشروع فيلم، وكل فيلم ليه قصة.</p>
+      <article class="premiere" id="premiere" aria-labelledby="premiereTitle">
+        <span class="premiere__ribbon" data-t="prRibbon">الفيلم الرئيسي</span>
+        <div class="premiere__grid">
+          <div>
+            <p class="premiere__genre" data-t="prGenre">محتوى يوتيوب · توعية مالية</p>
+            <h3 class="premiere__title" id="premiereTitle" data-t="prTitle">السيرة الاقتصادية</h3>
+            <p class="premiere__with" data-t="prWith">مع د. باسم عليوة</p>
+            <p class="premiere__logline" data-t="prLogline">سلسلة على يوتيوب بتحكي سيرة الصحابة من زاوية المال والتجارة: صفقات وقرارات اقتصادية من ١٤٠٠ سنة، بلغة وهوكس النهارده.</p>
+            <dl class="premiere__credits">
+              <dt data-t="prStarK">بطولة</dt><dd data-t="prStar">د. باسم عليوة</dd>
+              <dt data-t="prIdeaK">فكرة وسيناريو</dt><dd data-t="prMe">أحمد طارق</dd>
+              <dt data-t="prGrowthK">إدارة القناة والنمو</dt><dd data-t="prMe">أحمد طارق</dd>
+              <dt data-t="prChannelK">القناة</dt><dd data-t="prChannel">Basem Elewa · ٧٣٫٧ ألف مشترك</dd>
+            </dl>
+            <ul class="premiere__did">
+              <li data-t="prDid1">فكرة السلسلة واستراتيجيتها: زاوية كل حلقة، والعناوين، والهوكس.</li>
+              <li data-t="prDid2">كتابة وتطوير سكريبتات الحلقات.</li>
+              <li data-t="prDid3">إدارة القناة ونموها: SEO يوتيوب، والثمبنيلز، والجدولة، والتحليلات.</li>
+            </ul>
+            <div class="premiere__links">
+              <a class="btn-red" href="https://www.youtube.com/watch?v=pnDgAbxDT-E" target="_blank" rel="noopener" data-t="prTopEp">شوف أعلى حلقة</a>
+              <a class="reel__link" href="https://www.youtube.com/@basemelewa" target="_blank" rel="noopener" data-t="prChannelLink">شوف القناة ↖</a>
+            </div>
+          </div>
+          <div class="premiere__stats">
+            <p class="pstat"><b data-t="ps1v">٣٢٫٩ ألف</b><span data-t="ps1">مشاهدة لأعلى حلقة (عروة البارقي)</span></p>
+            <p class="pstat"><b data-t="ps2v">+١١٠ ألف</b><span data-t="ps2">مشاهدة في ٦ حلقات</span></p>
+            <p class="pstat"><b data-t="ps3v">١١–٣٣ ألف</b><span data-t="ps3">مشاهدة للحلقة في الموسم ده</span></p>
+            <p class="pstat pstat--before"><b data-t="ps4v">أقل من ٣ آلاف</b><span data-t="ps4">للحلقة في السلسلة القديمة قبل كده</span></p>
+            <p class="premiere__note" data-t="psNote">أرقام يوتيوب العامة وقت كتابة الصفحة (أكتوبر ٢٠٢٦).</p>
+          </div>
+        </div>
+        <div class="filmstrip">
+          <p class="filmstrip__head" data-t="epHead">حلقات الموسم · رضي الله عنهم</p>
+          <ol class="episodes">
+            <li><a href="https://www.youtube.com/watch?v=0xMP5YVZZ9o" target="_blank" rel="noopener"><span class="ep__name" data-t="ep1">أبو بكر الصديق</span><span class="ep__views" data-t="ep1v">٢٢٫٦ ألف مشاهدة</span></a></li>
+            <li><a href="https://www.youtube.com/watch?v=PuPRJ9v-YN4" target="_blank" rel="noopener"><span class="ep__name" data-t="ep2">عثمان بن عفان</span><span class="ep__views" data-t="ep2v">١٢ ألف مشاهدة</span></a></li>
+            <li><a href="https://www.youtube.com/watch?v=pnDgAbxDT-E" target="_blank" rel="noopener"><span class="ep__name" data-t="ep3">عروة البارقي</span><span class="ep__views" data-t="ep3v">٣٢٫٩ ألف مشاهدة</span></a></li>
+            <li><a href="https://www.youtube.com/watch?v=cgi4IFI9fIw" target="_blank" rel="noopener"><span class="ep__name" data-t="ep4">عمرو بن العاص</span><span class="ep__views" data-t="ep4v">١٤٫٧ ألف مشاهدة</span></a></li>
+            <li><a href="https://www.youtube.com/watch?v=UjRv5fp5EOs" target="_blank" rel="noopener"><span class="ep__name" data-t="ep5">طلحة بن عبيد الله</span><span class="ep__views" data-t="ep5v">١١٫١ ألف مشاهدة</span></a></li>
+            <li><a href="https://www.youtube.com/watch?v=YZMaq61jXLs" target="_blank" rel="noopener"><span class="ep__name" data-t="ep6">حكيم بن حزام</span><span class="ep__views" data-t="ep6v">١٧٫٣ ألف مشاهدة</span></a></li>
+          </ol>
+        </div>
+      </article>
       <ol class="reels">
         <li>
           <article class="reel">
@@ -1579,7 +1702,45 @@ html[lang="en"] .meter__count b { font-size: .95rem; }
     c_perf: ["بيرفورمانس ماركتنج", "Performance"], c_native: ["نيتف أدز", "Native ads"], c_ecom: ["تجارة إلكترونية", "E-commerce"],
     c_app: ["تطبيق رياضي", "Sports app"], c_mobile: ["تطبيق موبايل", "Mobile app"], c_agency: ["وكالة", "Agency"],
     archKicker: ["الأرشيف", "From the archive"],
-    archCount: ["٧ أعداد محفوظة", "7 issues on file"],
+    archCount: ["٨ أعداد محفوظة", "8 issues on file"],
+    jsDate: ["٢٠٢٦", "2026"],
+    specialIssue: ["عدد خاص", "Special issue"],
+    jsHead: ["«السيرة الاقتصادية» مع د. باسم عليوة: حلقات بتوصل لـ٣٣ ألف مشاهدة", "“The Economic Seerah” with Dr. Basem Elewa: episodes reaching 33K views"],
+    jsBody: ["اشتغلت مباشرة مع د. باسم عليوة على سلسلة «السيرة الاقتصادية» على يوتيوب: فكرة السلسلة واستراتيجيتها، وكتابة السكريبتات، وإدارة القناة ونموها. حلقات الموسم ده جابت بين ١١ و٣٣ ألف مشاهدة للحلقة، مقابل أقل من ٣ آلاف لحلقات السلسلة القديمة.",
+             "Worked directly with Dr. Basem Elewa on the YouTube series “The Economic Seerah”: series concept and strategy, scriptwriting, and channel management and growth. This season's episodes drew 11K–33K views each, against under 3K for the earlier series."],
+    jsTags: ["استراتيجية محتوى · سكريبت · نمو يوتيوب · محتوى مالي", "Content strategy · Scriptwriting · YouTube growth · Financial content"],
+    jsMore: ["التفاصيل في «بيُعرض الآن» ↓", "Full story in “Now showing” ↓"],
+    jsIndex: ["السيرة الاقتصادية", "Economic Seerah"],
+    prRibbon: ["الفيلم الرئيسي", "Feature presentation"],
+    prGenre: ["محتوى يوتيوب · توعية مالية", "YouTube series · Financial literacy"],
+    prTitle: ["السيرة الاقتصادية", "The Economic Seerah"],
+    prWith: ["مع د. باسم عليوة", "with Dr. Basem Elewa"],
+    prLogline: ["سلسلة على يوتيوب بتحكي سيرة الصحابة من زاوية المال والتجارة: صفقات وقرارات اقتصادية من ١٤٠٠ سنة، بلغة وهوكس النهارده.",
+                "A YouTube series retelling the lives of the Prophet's companions through money and trade: deals and economic decisions from 1,400 years ago, told with today's language and hooks."],
+    prStarK: ["بطولة", "Starring"],
+    prStar: ["د. باسم عليوة", "Dr. Basem Elewa"],
+    prIdeaK: ["فكرة وسيناريو", "Concept & script"],
+    prGrowthK: ["إدارة القناة والنمو", "Channel & growth"],
+    prMe: ["أحمد طارق", "Ahmed Tarek"],
+    prChannelK: ["القناة", "Channel"],
+    prChannel: ["Basem Elewa · ٧٣٫٧ ألف مشترك", "Basem Elewa · 73.7K subscribers"],
+    prDid1: ["فكرة السلسلة واستراتيجيتها: زاوية كل حلقة، والعناوين، والهوكس.", "Series concept and strategy: each episode's angle, titles and hooks."],
+    prDid2: ["كتابة وتطوير سكريبتات الحلقات.", "Writing and developing the episode scripts."],
+    prDid3: ["إدارة القناة ونموها: SEO يوتيوب، والثمبنيلز، والجدولة، والتحليلات.", "Channel management and growth: YouTube SEO, thumbnails, scheduling and analytics."],
+    prTopEp: ["شوف أعلى حلقة", "Watch the top episode"],
+    prChannelLink: ["شوف القناة ↖", "Visit the channel ↗"],
+    ps1v: ["٣٢٫٩ ألف", "32.9K"], ps1: ["مشاهدة لأعلى حلقة (عروة البارقي)", "views on the top episode (Urwa al-Bariqi)"],
+    ps2v: ["+١١٠ ألف", "110K+"], ps2: ["مشاهدة في ٦ حلقات", "views across 6 episodes"],
+    ps3v: ["١١–٣٣ ألف", "11K–33K"], ps3: ["مشاهدة للحلقة في الموسم ده", "views per episode this season"],
+    ps4v: ["أقل من ٣ آلاف", "Under 3K"], ps4: ["للحلقة في السلسلة القديمة قبل كده", "per episode in the earlier series"],
+    psNote: ["أرقام يوتيوب العامة وقت كتابة الصفحة (أكتوبر ٢٠٢٦).", "Public YouTube numbers at the time of writing (October 2026)."],
+    epHead: ["حلقات الموسم · رضي الله عنهم", "This season's episodes"],
+    ep1: ["أبو بكر الصديق", "Abu Bakr al-Siddiq"], ep1v: ["٢٢٫٦ ألف مشاهدة", "22.6K views"],
+    ep2: ["عثمان بن عفان", "Uthman ibn Affan"], ep2v: ["١٢ ألف مشاهدة", "12K views"],
+    ep3: ["عروة البارقي", "Urwa al-Bariqi"], ep3v: ["٣٢٫٩ ألف مشاهدة", "32.9K views"],
+    ep4: ["عمرو بن العاص", "Amr ibn al-As"], ep4v: ["١٤٫٧ ألف مشاهدة", "14.7K views"],
+    ep5: ["طلحة بن عبيد الله", "Talha ibn Ubaydullah"], ep5v: ["١١٫١ ألف مشاهدة", "11.1K views"],
+    ep6: ["حكيم بن حزام", "Hakim ibn Hizam"], ep6v: ["١٧٫٣ ألف مشاهدة", "17.3K views"],
     archTitle: ["٩ سنين جوه الأكونتات الإعلانية", "Nine years inside the ad accounts"],
     archDeck: ["من المحتوى في النادي الأهلي لقيادة الـ performance marketing في Business Loop. كل وظيفة عدد محفوظ في الأرشيف، والورق بيصفرّ كل ما العدد يقدم.",
                "From content at Al Ahly Sporting Club to leading performance marketing at Business Loop. Every role is an issue on file, and the paper yellows as it ages."],
@@ -1751,7 +1912,7 @@ html[lang="en"] .meter__count b { font-size: .95rem; }
     workTitle: ["بيُعرض الآن", "Now showing"],
     workSub: ["مشاريع اشتغلت عليها مع وكالات وأندية وبراندات ميديا وفاشون. كل مشروع فيلم، وكل فيلم ليه قصة.",
               "Projects built with agencies, clubs, media and fashion brands. Every project is a feature with its own story."],
-    showLabel: ["عرض", "Feature"],
+    showLabel: ["عرض", "Reel"],
     creditStar: ["بطولة", "Starring"],
     creditLoc: ["التصوير في", "Shot in"],
     w1genre: ["سوشيال ستراتيجي", "Social strategy"],
