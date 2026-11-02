@@ -700,7 +700,7 @@ html[lang="en"] .pstat b { font-family: var(--f-slab); font-size: 1.5rem; }
 }
 .filmstrip__head { margin-bottom: 10px; font-family: var(--f-label); font-size: .95rem; color: var(--p-yellow); }
 html[lang="en"] .filmstrip__head { font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; }
-.episodes { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 10px; }
+.episodes { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
 .episodes a {
   display: flex; flex-direction: column; justify-content: space-between; gap: 6px; height: 100%; padding: 12px 10px;
   background: var(--p-cream); color: var(--p-ink); text-decoration: none; border-radius: 4px; box-shadow: inset 0 0 0 2px var(--p-ink);
@@ -710,6 +710,10 @@ html[lang="en"] .filmstrip__head { font-size: .72rem; letter-spacing: .12em; tex
 .ep__name { font-family: var(--f-display); font-size: 1.05rem; line-height: 1.35; }
 html[lang="en"] .ep__name { font-family: var(--f-slab); font-size: .82rem; line-height: 1.25; }
 .ep__views { font-size: .85rem; color: var(--p-red); font-variant-numeric: tabular-nums; }
+.ep__no { font-family: var(--f-mono); font-size: .7rem; color: var(--p-ink-soft); }
+.ep--top a { background: var(--p-yellow); box-shadow: inset 0 0 0 2px var(--p-ink), 0 0 0 3px var(--p-red); }
+.ep__badge { align-self: flex-start; padding: 1px 8px; border-radius: 999px; background: var(--p-red); color: var(--p-cream); font-family: var(--f-label); font-size: .72rem; }
+html[lang="en"] .ep__badge { font-size: .62rem; letter-spacing: .08em; text-transform: uppercase; }
 
 .reels { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; }
 .reel {
@@ -1002,7 +1006,9 @@ html[lang="en"] .meter__count b { font-size: .95rem; }
   .ads, .frames { grid-template-columns: 1fr; }
   .frame { min-height: 0; }
   .clip__points { columns: 1; }
-  .episodes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .episodes { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+  .episodes a { padding: 10px 8px; }
+  .ep__name { font-size: .92rem; }
   .form__row { grid-template-columns: 1fr; }
   .form__head { flex-wrap: wrap; }
   .form__admin { max-width: none; }
@@ -1250,8 +1256,8 @@ html[lang="en"] .meter__count b { font-size: .95rem; }
               <article class="clip">
                 <header class="clip__mast"><span class="clip__paper" data-t="clipPaper">النتايج</span><span class="clip__date" data-t="jsDate">٢٠٢٦</span></header>
                 <div class="clip__kicker-row"><p class="clip__kicker"><bdi>Basem Elewa · YouTube · Direct project</bdi></p><span class="clip__stamp" data-t="specialIssue">عدد خاص</span></div>
-                <h3 class="clip__head" data-t="jsHead">«السيرة الاقتصادية» مع د. باسم عليوة: حلقات بتوصل لـ٤٣ ألف مشاهدة</h3>
-                <p class="clip__body" data-t="jsBody">اشتغلت مباشرة مع د. باسم عليوة على سلسلة «السيرة الاقتصادية» على يوتيوب: فكرة السلسلة واستراتيجيتها، وكتابة السكريبتات، وإدارة القناة ونموها. حلقات الموسم ده جابت بين ١٥ و٤٣ ألف مشاهدة للحلقة، مقابل أقل من ٣ آلاف لحلقات السلسلة القديمة.</p>
+                <h3 class="clip__head" data-t="jsHead">«السيرة الاقتصادية» مع د. باسم عليوة: +٧٨٦ ألف مشاهدة في ١٥ حلقة</h3>
+                <p class="clip__body" data-t="jsBody">اشتغلت مباشرة مع د. باسم عليوة على سلسلة «السيرة الاقتصادية» على يوتيوب: فكرة السلسلة واستراتيجيتها، وكتابة السكريبتات، وإدارة القناة ونموها. الـ١٥ حلقة جابوا أكتر من ٧٨٦ ألف مشاهدة، بمتوسط ٥٢ ألف للحلقة وأعلاهم ٣٥٦ ألف، مقابل أقل من ٣ آلاف للحلقة في السلسلة القديمة.</p>
                 <p class="clip__tags"><span class="clip__tags-k" data-t="tagsLabel">كلمات البحث:</span> <span data-t="jsTags">استراتيجية محتوى · سكريبت · نمو يوتيوب · محتوى مالي</span></p>
                 <a class="clip__more" href="#premiere" data-t="jsMore">التفاصيل في «بيُعرض الآن» ↓</a>
               </article>
@@ -1344,14 +1350,14 @@ html[lang="en"] .meter__count b { font-size: .95rem; }
               <li data-t="prDid3">إدارة القناة ونموها: SEO يوتيوب، والثمبنيلز، والجدولة، والتحليلات.</li>
             </ul>
             <div class="premiere__links">
-              <a class="btn-red" href="https://www.youtube.com/watch?v=pnDgAbxDT-E" target="_blank" rel="noopener" data-t="prTopEp">شوف أعلى حلقة</a>
-              <a class="reel__link" href="https://www.youtube.com/@basemelewa" target="_blank" rel="noopener" data-t="prChannelLink">شوف القناة ↖</a>
+              <a class="btn-red" href="https://www.youtube.com/watch?v=lhpekWM0iIE" target="_blank" rel="noopener" data-t="prTopEp">شوف أعلى حلقة</a>
+              <a class="reel__link" href="https://www.youtube.com/playlist?list=PLIFXAkfosq_I" target="_blank" rel="noopener" data-t="prChannelLink">شوف السلسلة كاملة ↖</a>
             </div>
           </div>
           <div class="premiere__stats">
-            <p class="pstat"><b data-t="ps1v">٤٢٫٩ ألف</b><span data-t="ps1">مشاهدة لأعلى حلقة (عروة البارقي)</span></p>
-            <p class="pstat"><b data-t="ps2v">+١٤٣ ألف</b><span data-t="ps2">مشاهدة في ٦ حلقات</span></p>
-            <p class="pstat"><b data-t="ps3v">١٥–٤٣ ألف</b><span data-t="ps3">مشاهدة للحلقة في الموسم ده</span></p>
+            <p class="pstat"><b data-t="ps1v">٣٥٦ ألف</b><span data-t="ps1">مشاهدة لأعلى حلقة (عبد الرحمن بن عوف)</span></p>
+            <p class="pstat"><b data-t="ps2v">+٧٨٦ ألف</b><span data-t="ps2">مشاهدة في ١٥ حلقة</span></p>
+            <p class="pstat"><b data-t="ps3v">٥٢ ألف</b><span data-t="ps3">متوسط مشاهدات الحلقة</span></p>
             <p class="pstat pstat--before"><b data-t="ps4v">أقل من ٣ آلاف</b><span data-t="ps4">للحلقة في السلسلة القديمة قبل كده</span></p>
             <p class="premiere__note" data-t="psNote">أرقام يوتيوب العامة وقت كتابة الصفحة (نوفمبر ٢٠٢٦).</p>
           </div>
@@ -1359,12 +1365,21 @@ html[lang="en"] .meter__count b { font-size: .95rem; }
         <div class="filmstrip">
           <p class="filmstrip__head" data-t="epHead">حلقات الموسم · رضي الله عنهم</p>
           <ol class="episodes">
-            <li><a href="https://www.youtube.com/watch?v=0xMP5YVZZ9o" target="_blank" rel="noopener"><span class="ep__name" data-t="ep1">أبو بكر الصديق</span><span class="ep__views" data-t="ep1v">٢٩٫٩ ألف مشاهدة</span></a></li>
-            <li><a href="https://www.youtube.com/watch?v=PuPRJ9v-YN4" target="_blank" rel="noopener"><span class="ep__name" data-t="ep2">عثمان بن عفان</span><span class="ep__views" data-t="ep2v">١٦٫١ ألف مشاهدة</span></a></li>
-            <li><a href="https://www.youtube.com/watch?v=pnDgAbxDT-E" target="_blank" rel="noopener"><span class="ep__name" data-t="ep3">عروة البارقي</span><span class="ep__views" data-t="ep3v">٤٢٫٩ ألف مشاهدة</span></a></li>
-            <li><a href="https://www.youtube.com/watch?v=cgi4IFI9fIw" target="_blank" rel="noopener"><span class="ep__name" data-t="ep4">عمرو بن العاص</span><span class="ep__views" data-t="ep4v">١٧٫٥ ألف مشاهدة</span></a></li>
-            <li><a href="https://www.youtube.com/watch?v=UjRv5fp5EOs" target="_blank" rel="noopener"><span class="ep__name" data-t="ep5">طلحة بن عبيد الله</span><span class="ep__views" data-t="ep5v">١٥٫١ ألف مشاهدة</span></a></li>
-            <li><a href="https://www.youtube.com/watch?v=YZMaq61jXLs" target="_blank" rel="noopener"><span class="ep__name" data-t="ep6">حكيم بن حزام</span><span class="ep__views" data-t="ep6v">٢٢ ألف مشاهدة</span></a></li>
+            <li><a href="https://www.youtube.com/watch?v=AIkVpiPXRps" target="_blank" rel="noopener"><span class="ep__no" data-year="1">١</span><span class="ep__name" data-t="ep1">العباس بن عبد المطلب</span><span class="ep__views" data-views="58535">٥٨٫٥ ألف مشاهدة</span></a></li>
+            <li><a href="https://www.youtube.com/watch?v=_U2w2FBi3zU" target="_blank" rel="noopener"><span class="ep__no" data-year="2">٢</span><span class="ep__name" data-t="ep2">الزبير بن العوام</span><span class="ep__views" data-views="46454">٤٦٫٥ ألف مشاهدة</span></a></li>
+            <li><a href="https://www.youtube.com/watch?v=0xMP5YVZZ9o" target="_blank" rel="noopener"><span class="ep__no" data-year="3">٣</span><span class="ep__name" data-t="ep3">أبو بكر الصديق</span><span class="ep__views" data-views="29857">٢٩٫٩ ألف مشاهدة</span></a></li>
+            <li><a href="https://www.youtube.com/watch?v=PuPRJ9v-YN4" target="_blank" rel="noopener"><span class="ep__no" data-year="4">٤</span><span class="ep__name" data-t="ep4">عثمان بن عفان</span><span class="ep__views" data-views="16099">١٦٫١ ألف مشاهدة</span></a></li>
+            <li><a href="https://www.youtube.com/watch?v=UjRv5fp5EOs" target="_blank" rel="noopener"><span class="ep__no" data-year="5">٥</span><span class="ep__name" data-t="ep5">طلحة بن عبيد الله</span><span class="ep__views" data-views="15131">١٥٫١ ألف مشاهدة</span></a></li>
+            <li><a href="https://www.youtube.com/watch?v=b9UThFVVYEo" target="_blank" rel="noopener"><span class="ep__no" data-year="6">٦</span><span class="ep__name" data-t="ep6">بلال بن رباح</span><span class="ep__views" data-views="17591">١٧٫٦ ألف مشاهدة</span></a></li>
+            <li><a href="https://www.youtube.com/watch?v=cgi4IFI9fIw" target="_blank" rel="noopener"><span class="ep__no" data-year="7">٧</span><span class="ep__name" data-t="ep7">عمرو بن العاص</span><span class="ep__views" data-views="17517">١٧٫٥ ألف مشاهدة</span></a></li>
+            <li><a href="https://www.youtube.com/watch?v=pnDgAbxDT-E" target="_blank" rel="noopener"><span class="ep__no" data-year="8">٨</span><span class="ep__name" data-t="ep8">عروة البارقي</span><span class="ep__views" data-views="42978">٤٣ ألف مشاهدة</span></a></li>
+            <li><a href="https://www.youtube.com/watch?v=YZMaq61jXLs" target="_blank" rel="noopener"><span class="ep__no" data-year="9">٩</span><span class="ep__name" data-t="ep9">حكيم بن حزام</span><span class="ep__views" data-views="22039">٢٢ ألف مشاهدة</span></a></li>
+            <li><a href="https://www.youtube.com/watch?v=yi0zxb1Ejs0" target="_blank" rel="noopener"><span class="ep__no" data-year="10">١٠</span><span class="ep__name" data-t="ep10">عبد الله بن عمر</span><span class="ep__views" data-views="50234">٥٠٫٢ ألف مشاهدة</span></a></li>
+            <li><a href="https://www.youtube.com/watch?v=LQ6FzrlKWdY" target="_blank" rel="noopener"><span class="ep__no" data-year="11">١١</span><span class="ep__name" data-t="ep11">سعد بن أبي وقاص</span><span class="ep__views" data-views="30708">٣٠٫٧ ألف مشاهدة</span></a></li>
+            <li class="ep--top"><a href="https://www.youtube.com/watch?v=lhpekWM0iIE" target="_blank" rel="noopener"><span class="ep__no" data-year="12">١٢</span><span class="ep__name" data-t="ep12">عبد الرحمن بن عوف</span><span class="ep__views" data-views="356051">٣٥٦ ألف مشاهدة</span><span class="ep__badge" data-t="epTop">★ الأعلى</span></a></li>
+            <li><a href="https://www.youtube.com/watch?v=4e_hbw7SiHc" target="_blank" rel="noopener"><span class="ep__no" data-year="13">١٣</span><span class="ep__name" data-t="ep13">السيدة خديجة</span><span class="ep__views" data-views="22425">٢٢٫٤ ألف مشاهدة</span></a></li>
+            <li><a href="https://www.youtube.com/watch?v=SBCqx-baQrM" target="_blank" rel="noopener"><span class="ep__no" data-year="14">١٤</span><span class="ep__name" data-t="ep14">أنس بن مالك</span><span class="ep__views" data-views="47537">٤٧٫٥ ألف مشاهدة</span></a></li>
+            <li><a href="https://www.youtube.com/watch?v=Avc1pwGx9_c" target="_blank" rel="noopener"><span class="ep__no" data-year="15">١٥</span><span class="ep__name" data-t="ep15">ثمامة بن أثال</span><span class="ep__views" data-views="13038">١٣ ألف مشاهدة</span></a></li>
           </ol>
         </div>
       </article>
@@ -1705,9 +1720,9 @@ html[lang="en"] .meter__count b { font-size: .95rem; }
     archCount: ["٨ أعداد محفوظة", "8 issues on file"],
     jsDate: ["٢٠٢٦", "2026"],
     specialIssue: ["عدد خاص", "Special issue"],
-    jsHead: ["«السيرة الاقتصادية» مع د. باسم عليوة: حلقات بتوصل لـ٤٣ ألف مشاهدة", "“The Economic Seerah” with Dr. Basem Elewa: episodes reaching 43K views"],
-    jsBody: ["اشتغلت مباشرة مع د. باسم عليوة على سلسلة «السيرة الاقتصادية» على يوتيوب: فكرة السلسلة واستراتيجيتها، وكتابة السكريبتات، وإدارة القناة ونموها. حلقات الموسم ده جابت بين ١٥ و٤٣ ألف مشاهدة للحلقة، مقابل أقل من ٣ آلاف لحلقات السلسلة القديمة.",
-             "Worked directly with Dr. Basem Elewa on the YouTube series “The Economic Seerah”: series concept and strategy, scriptwriting, and channel management and growth. This season's episodes drew 15K–43K views each, against under 3K for the earlier series."],
+    jsHead: ["«السيرة الاقتصادية» مع د. باسم عليوة: +٧٨٦ ألف مشاهدة في ١٥ حلقة", "“The Economic Seerah” with Dr. Basem Elewa: 786K+ views across 15 episodes"],
+    jsBody: ["اشتغلت مباشرة مع د. باسم عليوة على سلسلة «السيرة الاقتصادية» على يوتيوب: فكرة السلسلة واستراتيجيتها، وكتابة السكريبتات، وإدارة القناة ونموها. الـ١٥ حلقة جابوا أكتر من ٧٨٦ ألف مشاهدة، بمتوسط ٥٢ ألف للحلقة وأعلاهم ٣٥٦ ألف، مقابل أقل من ٣ آلاف للحلقة في السلسلة القديمة.",
+             "Worked directly with Dr. Basem Elewa on the YouTube series “The Economic Seerah”: series concept and strategy, scriptwriting, and channel management and growth. The 15 episodes have drawn 786K+ views, averaging 52K per episode with a top episode at 356K, against under 3K per episode for the earlier series."],
     jsTags: ["استراتيجية محتوى · سكريبت · نمو يوتيوب · محتوى مالي", "Content strategy · Scriptwriting · YouTube growth · Financial content"],
     jsMore: ["التفاصيل في «بيُعرض الآن» ↓", "Full story in “Now showing” ↓"],
     jsIndex: ["السيرة الاقتصادية", "Economic Seerah"],
@@ -1728,19 +1743,30 @@ html[lang="en"] .meter__count b { font-size: .95rem; }
     prDid2: ["كتابة وتطوير سكريبتات الحلقات.", "Writing and developing the episode scripts."],
     prDid3: ["إدارة القناة ونموها: SEO يوتيوب، والثمبنيلز، والجدولة، والتحليلات.", "Channel management and growth: YouTube SEO, thumbnails, scheduling and analytics."],
     prTopEp: ["شوف أعلى حلقة", "Watch the top episode"],
-    prChannelLink: ["شوف القناة ↖", "Visit the channel ↗"],
-    ps1v: ["٤٢٫٩ ألف", "42.9K"], ps1: ["مشاهدة لأعلى حلقة (عروة البارقي)", "views on the top episode (Urwa al-Bariqi)"],
-    ps2v: ["+١٤٣ ألف", "143K+"], ps2: ["مشاهدة في ٦ حلقات", "views across 6 episodes"],
-    ps3v: ["١٥–٤٣ ألف", "15K–43K"], ps3: ["مشاهدة للحلقة في الموسم ده", "views per episode this season"],
+    prChannelLink: ["شوف السلسلة كاملة ↖", "Watch the full series ↗"],
+    ps1v: ["٣٥٦ ألف", "356K"], ps1: ["مشاهدة لأعلى حلقة (عبد الرحمن بن عوف)", "views on the top episode (Abd al-Rahman ibn Awf)"],
+    ps2v: ["+٧٨٦ ألف", "786K+"], ps2: ["مشاهدة في ١٥ حلقة", "views across 15 episodes"],
+    ps3v: ["٥٢ ألف", "52K"], ps3: ["متوسط مشاهدات الحلقة", "average views per episode"],
     ps4v: ["أقل من ٣ آلاف", "Under 3K"], ps4: ["للحلقة في السلسلة القديمة قبل كده", "per episode in the earlier series"],
     psNote: ["أرقام يوتيوب العامة وقت كتابة الصفحة (نوفمبر ٢٠٢٦).", "Public YouTube numbers at the time of writing (November 2026)."],
-    epHead: ["حلقات الموسم · رضي الله عنهم", "This season's episodes"],
-    ep1: ["أبو بكر الصديق", "Abu Bakr al-Siddiq"], ep1v: ["٢٩٫٩ ألف مشاهدة", "29.9K views"],
-    ep2: ["عثمان بن عفان", "Uthman ibn Affan"], ep2v: ["١٦٫١ ألف مشاهدة", "16.1K views"],
-    ep3: ["عروة البارقي", "Urwa al-Bariqi"], ep3v: ["٤٢٫٩ ألف مشاهدة", "42.9K views"],
-    ep4: ["عمرو بن العاص", "Amr ibn al-As"], ep4v: ["١٧٫٥ ألف مشاهدة", "17.5K views"],
-    ep5: ["طلحة بن عبيد الله", "Talha ibn Ubaydullah"], ep5v: ["١٥٫١ ألف مشاهدة", "15.1K views"],
-    ep6: ["حكيم بن حزام", "Hakim ibn Hizam"], ep6v: ["٢٢ ألف مشاهدة", "22K views"],
+    epHead: ["حلقات السلسلة · رضي الله عنهم", "The episodes"],
+    epTop: ["★ الأعلى", "★ Top"],
+    epViews: ["{n} ألف مشاهدة", "{n}K views"],
+    ep1: ["العباس بن عبد المطلب", "Al-Abbas ibn Abd al-Muttalib"],
+    ep2: ["الزبير بن العوام", "Al-Zubayr ibn al-Awwam"],
+    ep3: ["أبو بكر الصديق", "Abu Bakr al-Siddiq"],
+    ep4: ["عثمان بن عفان", "Uthman ibn Affan"],
+    ep5: ["طلحة بن عبيد الله", "Talha ibn Ubaydullah"],
+    ep6: ["بلال بن رباح", "Bilal ibn Rabah"],
+    ep7: ["عمرو بن العاص", "Amr ibn al-As"],
+    ep8: ["عروة البارقي", "Urwa al-Bariqi"],
+    ep9: ["حكيم بن حزام", "Hakim ibn Hizam"],
+    ep10: ["عبد الله بن عمر", "Abdullah ibn Umar"],
+    ep11: ["سعد بن أبي وقاص", "Sa'd ibn Abi Waqqas"],
+    ep12: ["عبد الرحمن بن عوف", "Abd al-Rahman ibn Awf"],
+    ep13: ["السيدة خديجة", "Lady Khadija"],
+    ep14: ["أنس بن مالك", "Anas ibn Malik"],
+    ep15: ["ثمامة بن أثال", "Thumama ibn Uthal"],
     archTitle: ["٩ سنين جوه الأكونتات الإعلانية", "Nine years inside the ad accounts"],
     archDeck: ["من المحتوى في النادي الأهلي لقيادة الـ performance marketing في Business Loop. كل وظيفة عدد محفوظ في الأرشيف، والورق بيصفرّ كل ما العدد يقدم.",
                "From content at Al Ahly Sporting Club to leading performance marketing at Business Loop. Every role is an issue on file, and the paper yellows as it ages."],
@@ -2030,6 +2056,13 @@ html[lang="en"] .meter__count b { font-size: .95rem; }
     document.querySelectorAll("[data-count]").forEach(function (el) { el.textContent = fmt(+el.dataset.count); });
     var yearFmt = new Intl.NumberFormat(lang === "ar" ? "ar-EG" : "en-US", { useGrouping: false });
     document.querySelectorAll("[data-year]").forEach(function (el) { el.textContent = yearFmt.format(+el.dataset.year); });
+    /* episode views: thousands, one decimal under 100K (58.5K), whole numbers above (356K) */
+    var kFmt = new Intl.NumberFormat(lang === "ar" ? "ar-EG" : "en-US", { maximumFractionDigits: 1 });
+    document.querySelectorAll("[data-views]").forEach(function (el) {
+      var k = Math.round(+el.dataset.views / 100) / 10;
+      if (k >= 100) k = Math.round(k);
+      el.textContent = T.epViews[i].replace("{n}", kFmt.format(k));
+    });
     var btn = document.getElementById("langBtn");
     btn.textContent = lang === "ar" ? "EN" : "ع";
     btn.dataset.script = lang === "ar" ? "lat" : "ar";
